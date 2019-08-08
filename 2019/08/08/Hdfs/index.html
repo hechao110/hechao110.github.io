@@ -1,98 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Hdfs｜undefined
+        
+    </title>
 
-  
-  <title>Hdfs | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hadoop的核心 Hdfs1. HDFS概述1.1 介绍在现代的企业环境中，单机容量往往无法存储大量数据，需要跨机器存储。统一管理分布在集群上的文件系统称为分布式文件系统 。  HDFS（Hadoop Distributed File System）是 Apache Hadoop 项目的一个子项目. Hadoop 非常适于存储大型数据 (比如 TB 和 PB), 其就是使用 HDFS 作为存储系">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hdfs">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/Hdfs/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Hadoop的核心 Hdfs1. HDFS概述1.1 介绍在现代的企业环境中，单机容量往往无法存储大量数据，需要跨机器存储。统一管理分布在集群上的文件系统称为分布式文件系统 。  HDFS（Hadoop Distributed File System）是 Apache Hadoop 项目的一个子项目. Hadoop 非常适于存储大型数据 (比如 TB 和 PB), 其就是使用 HDFS 作为存储系">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://manzhong.github.io/images/hdfs/w.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/hdfs/r.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/hdfs/s.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/hdfs/ha.jpg">
-<meta property="og:image" content="https://manzhong.github.io/images/hdfs/lb.jpg">
-<meta property="og:updated_time" content="2019-08-08T03:34:52.817Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hdfs">
-<meta name="twitter:description" content="Hadoop的核心 Hdfs1. HDFS概述1.1 介绍在现代的企业环境中，单机容量往往无法存储大量数据，需要跨机器存储。统一管理分布在集群上的文件系统称为分布式文件系统 。  HDFS（Hadoop Distributed File System）是 Apache Hadoop 项目的一个子项目. Hadoop 非常适于存储大型数据 (比如 TB 和 PB), 其就是使用 HDFS 作为存储系">
-<meta name="twitter:image" content="https://manzhong.github.io/images/hdfs/w.bmp">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <link rel="canonical" href="http://yoursite.com/2019/08/08/Hdfs/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Hdfs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/08/Hdfs/" class="article-date">
-  <time datetime="2019-08-08T03:30:32.000Z" itemprop="datePublished">2019-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hdfs
-    </h1>
-  
 
-      </header>
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Hexo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hadoop的核心-Hdfs"><a href="#Hadoop的核心-Hdfs" class="headerlink" title="Hadoop的核心 Hdfs"></a>Hadoop的核心 Hdfs</h1><h2 id="1-HDFS概述"><a href="#1-HDFS概述" class="headerlink" title="1. HDFS概述"></a>1. HDFS概述</h2><h3 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h3><p>在现代的企业环境中，单机容量往往无法存储大量数据，需要跨机器存储。统一管理分布在集群上的文件系统称为<a href="https://manzhong.github.io/2017/07/05/Hdfs/" target="_blank" rel="noopener">分布式文件系统</a> 。</p>
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Hdfs</h1>
+                    
+                    <span class="meta">
+                         作者 John Doe
+                        <span>
+                          日期 2019-08-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Hdfs
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Hadoop的核心-Hdfs"><a href="#Hadoop的核心-Hdfs" class="headerlink" title="Hadoop的核心 Hdfs"></a>Hadoop的核心 Hdfs</h1><h2 id="1-HDFS概述"><a href="#1-HDFS概述" class="headerlink" title="1. HDFS概述"></a>1. HDFS概述</h2><h3 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h3><p>在现代的企业环境中，单机容量往往无法存储大量数据，需要跨机器存储。统一管理分布在集群上的文件系统称为<a href="https://manzhong.github.io/2017/07/05/Hdfs/" target="_blank" rel="noopener">分布式文件系统</a> 。</p>
 <p> <a href="https://manzhong.github.io/2017/07/05/Hdfs/" target="_blank" rel="noopener">HDFS</a>（Hadoop Distributed File System）是 Apache Hadoop 项目的一个子项目. Hadoop 非常适于存储大型数据 (比如 TB 和 PB), 其就是使用 HDFS 作为存储系统. HDFS 使用多台计算机存储文件, 并且提供统一的访问接口, 像是访问一个普通文件系统一样使用分布式文件系统.</p>
 <h3 id="1-2-历史"><a href="#1-2-历史" class="headerlink" title="1.2 历史"></a>1.2 历史</h3><ol>
 <li><a href="https://manzhong.github.io/2017/07/05/Hdfs/" target="_blank" rel="noopener">Doug Cutting</a> 在做 Lucene 的时候, 需要编写一个爬虫服务, 这个爬虫写的并不顺利, 遇到了一些问题, 诸如: 如何存储大规模的数据, 如何保证集群的可伸缩性, 如何动态容错等</li>
@@ -426,124 +499,168 @@
 <p>联邦: 解决了namenode的内存问题.</p>
 <p>namenode的可用性决定了Hadoop的可用性</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/Hdfs/" data-id="cjz2c0w94000kagu53mhjmrdp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/08/08/Zookeeper/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Zookeeper
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/08/08/Hadoop/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hadoop</div>
-    </a>
-  
-</nav>
+                <hr>
+                
 
-  
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/08/08/Zookeeper/" data-toggle="tooltip" data-placement="top"
+                           title="Zookeeper">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/08/08/Hadoop/" data-toggle="tooltip" data-placement="top"
+                           title="Hadoop">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hadoop的核心-Hdfs"><span class="toc-text">Hadoop的核心 Hdfs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HDFS概述"><span class="toc-text">1. HDFS概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-介绍"><span class="toc-text">1.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-历史"><span class="toc-text">1.2 历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HDFS应用场景"><span class="toc-text">2. HDFS应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-适合的应用场景"><span class="toc-text">2.1 适合的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-不适合的应用场景"><span class="toc-text">2.2 不适合的应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-HDFS-的架构"><span class="toc-text">3. HDFS 的架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-NameNode和DataNode"><span class="toc-text">4:NameNode和DataNode</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-DataNode作用"><span class="toc-text">4.2 DataNode作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-HDFS的副本机制和机架感知"><span class="toc-text">5:HDFS的副本机制和机架感知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-HDFS-文件副本机制"><span class="toc-text">5.1 HDFS 文件副本机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-机架感知"><span class="toc-text">5.2 机架感知</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、hdfs的命令行使用"><span class="toc-text">6、hdfs的命令行使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、hdfs的高级使用命令"><span class="toc-text">7、hdfs的高级使用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1、HDFS文件限额配置"><span class="toc-text">7. 1、HDFS文件限额配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-1、数量限额"><span class="toc-text">7.1.1、数量限额</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-2、空间大小限额"><span class="toc-text">7.1.2、空间大小限额</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2、hdfs的安全模式"><span class="toc-text">7.2、hdfs的安全模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-HDFS基准测试"><span class="toc-text">8. HDFS基准测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-测试写入速度"><span class="toc-text">8.1 测试写入速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-测试读取速度"><span class="toc-text">8.2 测试读取速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-清除测试数据"><span class="toc-text">8.3 清除测试数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-HDFS-文件写入过程"><span class="toc-text">9.HDFS 文件写入过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-HDFS-文件读取过程"><span class="toc-text">10.HDFS 文件读取过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-HDFS-的元数据辅助管理"><span class="toc-text">11.HDFS 的元数据辅助管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-1-FsImage-和-Edits-详解"><span class="toc-text">11.1 FsImage 和 Edits 详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-2-fsimage-中的文件信息查看"><span class="toc-text">11.2 fsimage 中的文件信息查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-3-edits-中的文件信息查看"><span class="toc-text">11.3. edits 中的文件信息查看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-4-SecondaryNameNode-如何辅助管理-fsimage-与-edits-文件"><span class="toc-text">11.4 SecondaryNameNode 如何辅助管理 fsimage 与 edits 文件?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HDFS-的-API-操作"><span class="toc-text">1:HDFS 的 API 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-配置Windows下Hadoop环境"><span class="toc-text">1.1 配置Windows下Hadoop环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-导入-Maven-依赖"><span class="toc-text">1.2 导入 Maven 依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-使用url方式访问数据（了解）"><span class="toc-text">1.3 使用url方式访问数据（了解）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-使用文件系统方式访问数据（掌握）"><span class="toc-text">1.4 使用文件系统方式访问数据（掌握）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-涉及的主要类"><span class="toc-text">1.4.1 涉及的主要类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-获取-FileSystem-的几种方式"><span class="toc-text">1.4.2 获取 FileSystem 的几种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-3-遍历-HDFS-中所有文件"><span class="toc-text">1.4.3 遍历 HDFS 中所有文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-4-HDFS-上创建文件夹"><span class="toc-text">1.4.4 HDFS 上创建文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-4-下载文件"><span class="toc-text">1.4.4 下载文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-5-HDFS-文件上传"><span class="toc-text">1.4.5 HDFS 文件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-6-hdfs访问权限控制"><span class="toc-text">1.4.6 hdfs访问权限控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-7-小文件合并"><span class="toc-text">1.4.7 小文件合并</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2：HDFS的高可用机制"><span class="toc-text">2：HDFS的高可用机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-HDFS高可用介绍"><span class="toc-text">2.1 HDFS高可用介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-组件介绍"><span class="toc-text">2.2 组件介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Hadoop的联邦机制-Federation"><span class="toc-text">3: Hadoop的联邦机制(Federation)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1背景概述"><span class="toc-text">3.1背景概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Federation架构设计"><span class="toc-text">3.2 Federation架构设计</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Hexo 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/08/08/Hbase/">Hbase</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Storm/">Storm</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala入门/">Scala入门</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
+<!-- Google Analytics -->
 
 
 
-  </div>
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
 </body>
+
 </html>

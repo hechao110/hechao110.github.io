@@ -1,101 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        MapReduce2｜undefined
+        
+    </title>
 
-  
-  <title>MapReduce2 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MapReduce详解1 .MapReduce的运行机制详解 全流程:  1.1:MapTask 工作机制简单概述：inputFile通过split被逻辑切分为多个split文件，通过Record按行读取内容给map（用户自己实现的）进行处理，数据被map处理结束之后交给OutputCollector收集器，对其结果key进行分区（默认使用hash分区），然后写入buffer，每个map task">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MapReduce2">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/MapReduce2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="MapReduce详解1 .MapReduce的运行机制详解 全流程:  1.1:MapTask 工作机制简单概述：inputFile通过split被逻辑切分为多个split文件，通过Record按行读取内容给map（用户自己实现的）进行处理，数据被map处理结束之后交给OutputCollector收集器，对其结果key进行分区（默认使用hash分区），然后写入buffer，每个map task">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/1-MapReduce%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6-%E5%85%A8%E6%B5%81%E7%A8%8B.jpg">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/2-Reduce%E7%AB%AFjoin%E6%93%8D%E4%BD%9C.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/3-Reduce%E7%AB%AFjoin%E6%93%8D%E4%BD%9C%E9%97%AE%E9%A2%98.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/4-Map%E7%AB%AFjoin%E6%93%8D%E4%BD%9C.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/5-%E6%B1%82%E5%85%B1%E5%90%8C%E5%A5%BD%E5%8F%8B.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/1-%E8%87%AA%E5%AE%9A%E4%B9%89InputFormat.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/2-%E8%87%AA%E5%AE%9A%E4%B9%89OutputFormat.bmp">
-<meta property="og:image" content="https://manzhong.github.io/images/MapReduce/3-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E7%BB%84%E6%B1%82TopN.bmp">
-<meta property="og:updated_time" content="2019-08-08T03:21:53.138Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MapReduce2">
-<meta name="twitter:description" content="MapReduce详解1 .MapReduce的运行机制详解 全流程:  1.1:MapTask 工作机制简单概述：inputFile通过split被逻辑切分为多个split文件，通过Record按行读取内容给map（用户自己实现的）进行处理，数据被map处理结束之后交给OutputCollector收集器，对其结果key进行分区（默认使用hash分区），然后写入buffer，每个map task">
-<meta name="twitter:image" content="https://manzhong.github.io/images/MapReduce/1-MapReduce%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6-%E5%85%A8%E6%B5%81%E7%A8%8B.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <link rel="canonical" href="http://yoursite.com/2019/08/08/MapReduce2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-MapReduce2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/08/MapReduce2/" class="article-date">
-  <time datetime="2019-08-08T03:21:13.000Z" itemprop="datePublished">2019-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      MapReduce2
-    </h1>
-  
 
-      </header>
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Hexo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MapReduce详解"><a href="#MapReduce详解" class="headerlink" title="MapReduce详解"></a>MapReduce详解</h1><h2 id="1-MapReduce的运行机制详解"><a href="#1-MapReduce的运行机制详解" class="headerlink" title="1 .MapReduce的运行机制详解"></a>1 .MapReduce的运行机制详解</h2><p> 全流程:</p>
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>MapReduce2</h1>
+                    
+                    <span class="meta">
+                         作者 John Doe
+                        <span>
+                          日期 2019-08-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            MapReduce2
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="MapReduce详解"><a href="#MapReduce详解" class="headerlink" title="MapReduce详解"></a>MapReduce详解</h1><h2 id="1-MapReduce的运行机制详解"><a href="#1-MapReduce的运行机制详解" class="headerlink" title="1 .MapReduce的运行机制详解"></a>1 .MapReduce的运行机制详解</h2><p> 全流程:</p>
 <p><a href="https://manzhong.github.io/images/MapReduce/1-MapReduce%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6-%E5%85%A8%E6%B5%81%E7%A8%8B.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/MapReduce/1-MapReduce%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6-%E5%85%A8%E6%B5%81%E7%A8%8B.jpg" alt="img"></a></p>
 <h3 id="1-1-MapTask-工作机制"><a href="#1-1-MapTask-工作机制" class="headerlink" title="1.1:MapTask 工作机制"></a>1.1:MapTask 工作机制</h3><p>简单概述：inputFile通过split被逻辑切分为多个split文件，通过Record按行读取内容给map（用户自己实现的）进行处理，数据被map处理结束之后交给OutputCollector收集器，对其结果key进行分区（默认使用hash分区），然后写入buffer，每个map task都有一个内存缓冲区，存储着map的输出结果，当缓冲区快满的时候需要将缓冲区的数据以一个临时文件的方式存放到磁盘，当整个map task结束后再对磁盘中这个map task产生的所有临时文件做合并，生成最终的正式输出文件，然后等待reduce task来拉数据</p>
 <h5 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h5><ol>
@@ -371,124 +441,168 @@
 <h4 id="第五步-定义Reducer类"><a href="#第五步-定义Reducer类" class="headerlink" title="第五步:定义Reducer类"></a>第五步:定义Reducer类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class GroupReducer extends Reducer&lt;OrderBean,Text,Text,NullWritable&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    protected void reduce(OrderBean key, Iterable&lt;Text&gt; values, Context context) throws IOException, InterruptedException &#123;</span><br><span class="line">        int i = 0;</span><br><span class="line">        //获取集合中的前N条数据</span><br><span class="line">        for (Text value : values) &#123;</span><br><span class="line">            context.write(value, NullWritable.get());</span><br><span class="line">            i++;</span><br><span class="line">            if(i &gt;= 1)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="第六步-程序main函数入口"><a href="#第六步-程序main函数入口" class="headerlink" title="第六步:程序main函数入口"></a><strong>第六步:</strong>程序main函数入口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">public class JobMain extends Configured implements Tool &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public int run(String[] args) throws Exception &#123;</span><br><span class="line">        //1:获取Job对象</span><br><span class="line">        Job job = Job.getInstance(super.getConf(), &quot;mygroup_job&quot;);</span><br><span class="line"></span><br><span class="line">        //2:设置job任务</span><br><span class="line">            //第一步:设置输入类和输入路径</span><br><span class="line">            job.setInputFormatClass(TextInputFormat.class);</span><br><span class="line">            TextInputFormat.addInputPath(job, new Path(&quot;file:///D:\\input\\mygroup_input&quot;));</span><br><span class="line"></span><br><span class="line">            //第二步:设置Mapper类和数据类型</span><br><span class="line">            job.setMapperClass(GroupMapper.class);</span><br><span class="line">            job.setMapOutputKeyClass(OrderBean.class);</span><br><span class="line">            job.setMapOutputValueClass(Text.class);</span><br><span class="line"></span><br><span class="line">            //第三,四,五,六</span><br><span class="line">            //设置分区</span><br><span class="line">            job.setPartitionerClass(OrderPartition.class);</span><br><span class="line">            //设置分组</span><br><span class="line">            job.setGroupingComparatorClass(OrderGroupComparator.class);</span><br><span class="line"></span><br><span class="line">            //第七步:设置Reducer类和数据类型</span><br><span class="line">            job.setReducerClass(GroupReducer.class);</span><br><span class="line">            job.setOutputKeyClass(Text.class);</span><br><span class="line">            job.setOutputValueClass(NullWritable.class);</span><br><span class="line"></span><br><span class="line">            //第八步:设置输出类和输出的路径</span><br><span class="line">            job.setOutputFormatClass(TextOutputFormat.class);</span><br><span class="line">            TextOutputFormat.setOutputPath(job, new Path(&quot;file:///D:\\out\\mygroup_out&quot;));</span><br><span class="line"></span><br><span class="line">        //3:等待job任务结束</span><br><span class="line">        boolean bl = job.waitForCompletion(true);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return bl ? 0: 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws Exception &#123;</span><br><span class="line">        Configuration configuration = new Configuration();</span><br><span class="line"></span><br><span class="line">        //启动job任务</span><br><span class="line">        int run = ToolRunner.run(configuration, new JobMain(), args);</span><br><span class="line"></span><br><span class="line">        System.exit(run);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/MapReduce2/" data-id="cjz2c0w9c000ragu5xjzpfiuo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/08/08/MapReduce/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          MapReduce
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/08/08/Yarn-资源调度/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Yarn-资源调度</div>
-    </a>
-  
-</nav>
+                <hr>
+                
 
-  
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/08/08/MapReduce/" data-toggle="tooltip" data-placement="top"
+                           title="MapReduce">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/08/08/Yarn-资源调度/" data-toggle="tooltip" data-placement="top"
+                           title="Yarn-资源调度">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MapReduce详解"><span class="toc-text">MapReduce详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-MapReduce的运行机制详解"><span class="toc-text">1 .MapReduce的运行机制详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-MapTask-工作机制"><span class="toc-text">1.1:MapTask 工作机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#详细步骤"><span class="toc-text">详细步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-ReduceTask-工作机制"><span class="toc-text">1.2 :ReduceTask 工作机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#详细步骤-1"><span class="toc-text">详细步骤</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-Shuffle-过程"><span class="toc-text">1.3:Shuffle 过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-案例-Reduce-端实现-JOIN"><span class="toc-text">2. 案例: Reduce 端实现 JOIN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-需求"><span class="toc-text">2.1. 需求</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#商品表"><span class="toc-text">商品表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#订单数据表"><span class="toc-text">订单数据表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-实现步骤"><span class="toc-text">2.2 实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-1-定义-Mapper"><span class="toc-text">Step 1: 定义 Mapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-2-定义-Reducer"><span class="toc-text">Step 2: 定义 Reducer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step-3-定义主类"><span class="toc-text">Step 3: 定义主类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-案例-Map端实现-JOIN"><span class="toc-text">3. 案例: Map端实现 JOIN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-概述"><span class="toc-text">3.1 概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-实现步骤"><span class="toc-text">3.2 实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-1：定义Mapper"><span class="toc-text">Step 1：定义Mapper</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-2：定义主类"><span class="toc-text">Step 2：定义主类</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-案例-求共同好友"><span class="toc-text">4. 案例:求共同好友</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-需求分析"><span class="toc-text">4.1 需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-实现步骤"><span class="toc-text">4.2 实现步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#第一步：代码实现"><span class="toc-text">第一步：代码实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第二步：代码实现"><span class="toc-text">第二步：代码实现</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-自定义InputFormat合并小文件"><span class="toc-text">1. 自定义InputFormat合并小文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-需求"><span class="toc-text">1.1 需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-分析"><span class="toc-text">1.2 分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-实现"><span class="toc-text">1.3 实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义InputFromat"><span class="toc-text">自定义InputFromat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义RecordReader"><span class="toc-text">自定义RecordReader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mapper类"><span class="toc-text">Mapper类:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主类"><span class="toc-text">主类:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-自定义outputFormat"><span class="toc-text">2. 自定义outputFormat</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-需求-1"><span class="toc-text">2.1 需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-分析"><span class="toc-text">2.2 分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-实现"><span class="toc-text">2.3 实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：自定义MyOutputFormat"><span class="toc-text">第一步：自定义MyOutputFormat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：自定义Mapper类"><span class="toc-text">第二步：自定义Mapper类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步-主类JobMain"><span class="toc-text">第三步:主类JobMain</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-自定义分组求取topN"><span class="toc-text">3. 自定义分组求取topN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-需求"><span class="toc-text">3.1 需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-分析"><span class="toc-text">3.2 分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-实现"><span class="toc-text">3.3 实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步-定义OrderBean"><span class="toc-text">第一步:定义OrderBean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步-定义Mapper类"><span class="toc-text">第二步: 定义Mapper类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步-自定义分区"><span class="toc-text">第三步:自定义分区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步-自定义分组"><span class="toc-text">第四步:自定义分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五步-定义Reducer类"><span class="toc-text">第五步:定义Reducer类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六步-程序main函数入口"><span class="toc-text">第六步:程序main函数入口</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Hexo 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/08/08/Hbase/">Hbase</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Storm/">Storm</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala入门/">Scala入门</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
+<!-- Google Analytics -->
 
 
 
-  </div>
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
 </body>
+
 </html>

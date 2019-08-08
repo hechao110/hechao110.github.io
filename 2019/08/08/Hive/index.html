@@ -1,102 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Hive｜undefined
+        
+    </title>
 
-  
-  <title>Hive | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hivehive中所有查询除了select * from table 其他都要通过MapReduce方式执行 即使只有一行一列 如不是select * from table 也要查询8,9秒. 1. 数据仓库1.1. 基本概念英文名称为Data Warehouse，可简写为DW或DWH。数据仓库的目的是构建面向分析的集成化数据环境，为企业提供决策支持（Decision Support）。 数据仓库">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hive">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/Hive/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Hivehive中所有查询除了select * from table 其他都要通过MapReduce方式执行 即使只有一行一列 如不是select * from table 也要查询8,9秒. 1. 数据仓库1.1. 基本概念英文名称为Data Warehouse，可简写为DW或DWH。数据仓库的目的是构建面向分析的集成化数据环境，为企业提供决策支持（Decision Support）。 数据仓库">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/1561705874041.png">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/1561705895292.png">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/1561705918286.png">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/1561705940248.png">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/1561705959607.png">
-<meta property="og:image" content="http://ppw6n93dt.bkt.clouddn.com/8dda7bfdfab0655e99a3c3b17afc422e.png">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/wps1.jpg">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/wps2.jpg">
-<meta property="og:image" content="https://manzhong.github.io/images/hive/wps3.jpg">
-<meta property="og:updated_time" content="2019-08-08T03:49:48.458Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hive">
-<meta name="twitter:description" content="Hivehive中所有查询除了select * from table 其他都要通过MapReduce方式执行 即使只有一行一列 如不是select * from table 也要查询8,9秒. 1. 数据仓库1.1. 基本概念英文名称为Data Warehouse，可简写为DW或DWH。数据仓库的目的是构建面向分析的集成化数据环境，为企业提供决策支持（Decision Support）。 数据仓库">
-<meta name="twitter:image" content="https://manzhong.github.io/images/hive/1561705874041.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <link rel="canonical" href="http://yoursite.com/2019/08/08/Hive/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
 </head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Hive" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/08/Hive/" class="article-date">
-  <time datetime="2019-08-08T03:41:48.000Z" itemprop="datePublished">2019-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hive
-    </h1>
-  
 
-      </header>
+<style>
+
+    header.intro-header {
+        background-image: url('')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Hexo
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h1><p>hive中所有查询除了select * from table 其他都要通过MapReduce方式执行 即使只有一行一列 如不是select * from table 也要查询8,9秒.</p>
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Hive</h1>
+                    
+                    <span class="meta">
+                         作者 John Doe
+                        <span>
+                          日期 2019-08-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Hive
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h1><p>hive中所有查询除了select * from table 其他都要通过MapReduce方式执行 即使只有一行一列 如不是select * from table 也要查询8,9秒.</p>
 <h2 id="1-数据仓库"><a href="#1-数据仓库" class="headerlink" title="1. 数据仓库"></a>1. 数据仓库</h2><h3 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1. 基本概念"></a>1.1. 基本概念</h3><p>英文名称为Data Warehouse，可简写为DW或DWH。数据仓库的目的是构建面向分析的集成化数据环境，为企业提供决策支持（Decision Support）。</p>
 <p>数据仓库是存数据的，企业的各种数据往里面存，主要目的是为了分析有效数据，后续会基于它产出供分析挖掘的数据，或者数据应用需要的数据，如企业的分析性报告和各类报表等。</p>
 <p>可以理解为：<code>面向分析的存储系统</code>。</p>
@@ -1387,124 +1456,168 @@
 
 <p>关于调优这些推测执行变量，还很难给一个具体的建议。如果用户对于运行时的偏差非常敏感的话，那么可以将这些功能关闭掉。如果用户因为输入数据量很大而需要执行长时间的map或者Reduce task的话，那么启动推测执行造成的浪费是非常巨大大。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/Hive/" data-id="cjz2c0w9j000xagu5a4yqeqde" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/08/08/SparkRDD/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          SparkRDD
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/08/08/Flume/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Flume</div>
-    </a>
-  
-</nav>
+                <hr>
+                
 
-  
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/08/08/SparkRDD/" data-toggle="tooltip" data-placement="top"
+                           title="SparkRDD">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/08/08/Flume/" data-toggle="tooltip" data-placement="top"
+                           title="Flume">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hive"><span class="toc-text">Hive</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-数据仓库"><span class="toc-text">1. 数据仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-基本概念"><span class="toc-text">1.1. 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-主要特征"><span class="toc-text">1.2. 主要特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-面向主题"><span class="toc-text">1.2.1. 面向主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-集成性"><span class="toc-text">1.2.2. 集成性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-非易失性"><span class="toc-text">1.2.3. 非易失性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-时变性"><span class="toc-text">1.2.4. 时变性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-数据库与数据仓库的区别"><span class="toc-text">1.3. 数据库与数据仓库的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-数仓的分层架构"><span class="toc-text">1.4. 数仓的分层架构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么要对数据仓库分层？"><span class="toc-text">为什么要对数据仓库分层？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-数仓的元数据管理"><span class="toc-text">1.5. 数仓的元数据管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Hive-的基本概念"><span class="toc-text">2. Hive 的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Hive-简介"><span class="toc-text">2.1. Hive 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#什么是-Hive"><span class="toc-text">什么是 Hive</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#为什么使用-Hive"><span class="toc-text">为什么使用 Hive</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Hive-架构"><span class="toc-text">2.2. Hive 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Hive-与-Hadoop-的关系"><span class="toc-text">2.3. Hive 与 Hadoop 的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Hive与传统数据库对比"><span class="toc-text">2.4. Hive与传统数据库对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Hive-的安装"><span class="toc-text">2.5. Hive 的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#第一步：上传并解压安装包"><span class="toc-text">第一步：上传并解压安装包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第二步：安装mysql"><span class="toc-text">第二步：安装mysql</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第三步：修改hive的配置文件"><span class="toc-text">第三步：修改hive的配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第四步：添加mysql的连接驱动包到hive的lib目录下"><span class="toc-text">第四步：添加mysql的连接驱动包到hive的lib目录下</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第五步：配置hive的环境变量"><span class="toc-text">第五步：配置hive的环境变量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-Hive-的交互方式"><span class="toc-text">2.6. Hive 的交互方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#第一种交互方式-bin-hive"><span class="toc-text">第一种交互方式 bin/hive</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第二种交互方式：使用sql语句或者sql脚本进行交互"><span class="toc-text">第二种交互方式：使用sql语句或者sql脚本进行交互</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Hive-的基本操作"><span class="toc-text">3. Hive 的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-数据库操作"><span class="toc-text">3.1 数据库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-创建数据库"><span class="toc-text">3.1.1 创建数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-创建数据库并指定位置"><span class="toc-text">3.1.2 创建数据库并指定位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-设置数据库键值对信息"><span class="toc-text">3.1.3 设置数据库键值对信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-查看数据库更多详细信息"><span class="toc-text">3.1.4 查看数据库更多详细信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-5-删除数据库"><span class="toc-text">3.1.5 删除数据库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-数据库表操作"><span class="toc-text">3.2 数据库表操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-创建表的语法"><span class="toc-text">3.2.1 创建表的语法:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-内部表的操作"><span class="toc-text">3.2.2 内部表的操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-外部表的操作"><span class="toc-text">3.2.3 外部表的操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-分区表的操作"><span class="toc-text">3.2.4 分区表的操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-5-分区表综合练习"><span class="toc-text">3.2.5 分区表综合练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-6-分桶表操作"><span class="toc-text">3.2.6 分桶表操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-修改表结构"><span class="toc-text">3.3 修改表结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Hive-查询语法"><span class="toc-text">4. Hive 查询语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-SELECT"><span class="toc-text">4.1. SELECT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-查询语法"><span class="toc-text">4.2. 查询语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-常用函数"><span class="toc-text">4.3. 常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-LIMIT语句"><span class="toc-text">4.4. LIMIT语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-WHERE语句"><span class="toc-text">4.5. WHERE语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-LIKE-和-RLIKE"><span class="toc-text">4.6. LIKE 和 RLIKE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-逻辑运算符"><span class="toc-text">4.7. 逻辑运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-分组"><span class="toc-text">4.8. 分组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GROUP-BY-语句"><span class="toc-text">GROUP BY 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HAVING-语句"><span class="toc-text">HAVING 语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-JOIN-语句"><span class="toc-text">4.9. JOIN 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-1-等值-JOIN"><span class="toc-text">4.9.1. 等值 JOIN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-2-表的别名"><span class="toc-text">4.9.2. 表的别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-3-内连接"><span class="toc-text">4.9.3. 内连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-4-左外连接"><span class="toc-text">4.9.4. 左外连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-5-右外连接"><span class="toc-text">4.9.5. 右外连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-6-多表连接"><span class="toc-text">4.9.6. 多表连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-排序"><span class="toc-text">4.10. 排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-10-1-全局排序"><span class="toc-text">4.10.1. 全局排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-10-2-按照别名排序"><span class="toc-text">4.10.2. 按照别名排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-10-3-多个列排序"><span class="toc-text">4.10.3. 多个列排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-10-4-每个MapReduce内部排序（Sort-By）局部排序"><span class="toc-text">4.10.4. 每个MapReduce内部排序（Sort By）局部排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-10-5-分区排序（DISTRIBUTE-BY）"><span class="toc-text">4.10.5. 分区排序（DISTRIBUTE BY）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-10-6-CLUSTER-BY"><span class="toc-text">4.10.6. CLUSTER BY</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Hive-Shell参数"><span class="toc-text">5.Hive Shell参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Hive命令行"><span class="toc-text">5.1 Hive命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-Hive参数配置方式"><span class="toc-text">5.2 Hive参数配置方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Hive-函数"><span class="toc-text">6. Hive 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-内置函数"><span class="toc-text">6.1. 内置函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-自定义函数"><span class="toc-text">6.2. 自定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-1-概述"><span class="toc-text">6.2.1 概述:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-2-UDF-开发实例"><span class="toc-text">6.2.2 UDF 开发实例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-1-创建-Maven-工程"><span class="toc-text">Step 1 创建 Maven 工程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-2-开发-Java-类集成-UDF"><span class="toc-text">Step 2 开发 Java 类集成 UDF</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-3-项目打包，并上传到hive的lib目录下"><span class="toc-text">Step 3 项目打包，并上传到hive的lib目录下</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-4-添加jar包"><span class="toc-text">Step 4 添加jar包</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-5-设置函数与我们的自定义函数关联"><span class="toc-text">Step 5 设置函数与我们的自定义函数关联</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Step-6-使用自定义函数"><span class="toc-text">Step 6 使用自定义函数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-hive的数据压缩"><span class="toc-text">7.hive的数据压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-MR支持的压缩编码"><span class="toc-text">*7.1 *MR支持的压缩编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-压缩配置参数"><span class="toc-text">7.2 压缩配置参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-开启Map输出阶段压缩"><span class="toc-text">7.3 开启Map输出阶段压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-开启Reduce输出阶段压缩"><span class="toc-text">7.4 开启Reduce输出阶段压缩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-hive的数据存储格式"><span class="toc-text">8.hive的数据存储格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-列式存储和行式存储"><span class="toc-text">8.1 列式存储和行式存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-常用数据存储格式"><span class="toc-text">8.2 常用数据存储格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-文件存储格式与数据压缩结合"><span class="toc-text">*9. *文件存储格式与数据压缩结合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-压缩比和查询速度对比"><span class="toc-text">9.1 压缩比和查询速度对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-ORC存储指定压缩方式"><span class="toc-text">9.2 ORC存储指定压缩方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-存储方式和压缩总结："><span class="toc-text">9.3 存储方式和压缩总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-hive调优"><span class="toc-text">10.hive调优</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-Fetch抓取"><span class="toc-text">10.1 Fetch抓取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-本地模式"><span class="toc-text">10.2 本地模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-MapJoin"><span class="toc-text">10.3 MapJoin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-Group-By"><span class="toc-text">10.4 Group By</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-Count-distinct"><span class="toc-text">10.5 Count(distinct)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-笛卡尔积"><span class="toc-text">10.6 笛卡尔积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-7-动态分区调整"><span class="toc-text">10.7 动态分区调整</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-7-1-开启动态分区参数设置"><span class="toc-text">10.7.1 开启动态分区参数设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-7-2-案例操作"><span class="toc-text">10.7.2 案例操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-8-并行执行"><span class="toc-text">10.8 并行执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-9-严格模式"><span class="toc-text">10.9 严格模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-10-JVM重用"><span class="toc-text">10.10 JVM重用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-11-推测执行"><span class="toc-text">10.11 推测执行</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Hexo 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/08/08/Hbase/">Hbase</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Storm/">Storm</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala入门/">Scala入门</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
-
-<script src="/js/script.js"></script>
+<!-- Google Analytics -->
 
 
 
-  </div>
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
 </body>
+
 </html>
