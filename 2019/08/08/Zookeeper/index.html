@@ -1,98 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
-  <title>Zookeeper | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Zookeeper学习笔记一概述zookeeper是一个开源的分布式协调服务框架,主要解决分布式集群中应用系统的一致性问题和数据管理问题.  二特点zoo本质上为一个分布式文件系统适合存放小文件. Zookeeper 中存储的其实是一个又一个 Znode, Znode 是 Zookeeper 中的节点  Znode 是有路径的, 例如 /data/host1, /data/host2, 这个路径也">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Zookeeper">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/Zookeeper/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Zookeeper学习笔记一概述zookeeper是一个开源的分布式协调服务框架,主要解决分布式集群中应用系统的一致性问题和数据管理问题.  二特点zoo本质上为一个分布式文件系统适合存放小文件. Zookeeper 中存储的其实是一个又一个 Znode, Znode 是 Zookeeper 中的节点  Znode 是有路径的, 例如 /data/host1, /data/host2, 这个路径也">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https://manzhong.github.io/images/zookeeper/1-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.png">
-<meta property="og:image" content="https://manzhong.github.io/images/zookeeper/1561706612382.png">
-<meta property="og:image" content="https://manzhong.github.io/images/zookeeper/1561706638372.png">
-<meta property="og:image" content="https://manzhong.github.io/images/zookeeper/1558060430149.png">
-<meta property="og:image" content="https://manzhong.github.io/images/zookeeper/Zookeeper%E7%9A%84%E6%9E%B6%E6%9E%84.jpg">
-<meta property="og:updated_time" content="2019-08-08T03:35:34.276Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zookeeper">
-<meta name="twitter:description" content="Zookeeper学习笔记一概述zookeeper是一个开源的分布式协调服务框架,主要解决分布式集群中应用系统的一致性问题和数据管理问题.  二特点zoo本质上为一个分布式文件系统适合存放小文件. Zookeeper 中存储的其实是一个又一个 Znode, Znode 是 Zookeeper 中的节点  Znode 是有路径的, 例如 /data/host1, /data/host2, 这个路径也">
-<meta name="twitter:image" content="https://manzhong.github.io/images/zookeeper/1-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+<title>Zookeeper | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 </head>
-</html>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Zookeeper" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/08/Zookeeper/" class="article-date">
-  <time datetime="2019-08-08T03:30:47.000Z" itemprop="datePublished">2019-08-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Zookeeper
-    </h1>
-  
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
 
-      </header>
+        </div>
+    </nav>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Zookeeper学习笔记"><a href="#Zookeeper学习笔记" class="headerlink" title="Zookeeper学习笔记"></a>Zookeeper学习笔记</h1><h2 id="一概述"><a href="#一概述" class="headerlink" title="一概述"></a>一概述</h2><p>zookeeper是一个开源的分布式协调服务框架,主要解决分布式集群中应用系统的一致性问题和数据管理问题.</p>
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Zookeeper</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">August 8, 2019&nbsp;&nbsp;11:30:47</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Zookeeper学习笔记"><a href="#Zookeeper学习笔记" class="headerlink" title="Zookeeper学习笔记"></a>Zookeeper学习笔记</h1><h2 id="一概述"><a href="#一概述" class="headerlink" title="一概述"></a>一概述</h2><p>zookeeper是一个开源的分布式协调服务框架,主要解决分布式集群中应用系统的一致性问题和数据管理问题.</p>
 <p><a href="https://manzhong.github.io/images/zookeeper/1-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/zookeeper/1-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F.png" alt="img"></a></p>
 <h2 id="二特点"><a href="#二特点" class="headerlink" title="二特点"></a>二特点</h2><p>zoo本质上为一个分布式文件系统适合存放小文件.</p>
 <p>Zookeeper 中存储的其实是一个又一个 Znode, Znode 是 Zookeeper 中的节点</p>
@@ -463,124 +558,70 @@
 
 <p>节点的监听:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    public void demo05() throws  Exception&#123;</span><br><span class="line">        RetryPolicy policy = new ExponentialBackoffRetry(3000, 3);</span><br><span class="line">        CuratorFramework client = CuratorFrameworkFactory.newClient(&quot;192.168.80.100:2181,192.168.80.110:2181,192.168.80.120:2181&quot;, policy);</span><br><span class="line">        client.start();</span><br><span class="line">        // ExecutorService pool = Executors.newCachedThreadPool();</span><br><span class="line">        //设置节点的cache</span><br><span class="line">        TreeCache treeCache = new TreeCache(client, &quot;/hello5&quot;);</span><br><span class="line">        //设置监听器和处理过程</span><br><span class="line">        treeCache.getListenable().addListener(new TreeCacheListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void childEvent(CuratorFramework client, TreeCacheEvent event) throws Exception &#123;</span><br><span class="line">                ChildData data = event.getData();</span><br><span class="line">                if(data !=null)&#123;</span><br><span class="line">                    switch (event.getType()) &#123;</span><br><span class="line">                        case NODE_ADDED:</span><br><span class="line">                            System.out.println(&quot;NODE_ADDED : &quot;+ data.getPath() +&quot;  数据:&quot;+ new String(data.getData()));</span><br><span class="line">                            break;</span><br><span class="line">                        case NODE_REMOVED:</span><br><span class="line">                            System.out.println(&quot;NODE_REMOVED : &quot;+ data.getPath() +&quot;  数据:&quot;+ new String(data.getData()));</span><br><span class="line">                            break;</span><br><span class="line">                        case NODE_UPDATED:</span><br><span class="line">                            System.out.println(&quot;NODE_UPDATED : &quot;+ data.getPath() +&quot;  数据:&quot;+ new String(data.getData()));</span><br><span class="line">                            break;</span><br><span class="line">                        default:</span><br><span class="line">                            break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    System.out.println( &quot;data is null : &quot;+ event.getType());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        //开始监听</span><br><span class="line">        treeCache.start();</span><br><span class="line">        Thread.sleep(50000000);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://yoursite.com/2019/08/08/Zookeeper/">http://yoursite.com/2019/08/08/Zookeeper/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</strong></strong></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/08/08/shell/">shell</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/08/Hdfs/">Hdfs</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/Zookeeper/" data-id="cjz25rjbh000hd8u5jvuaddoy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/08/08/shell/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          shell
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/08/08/Hdfs/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hdfs</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/08/08/Hbase/">Hbase</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Storm/">Storm</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala入门/">Scala入门</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
 </html>
