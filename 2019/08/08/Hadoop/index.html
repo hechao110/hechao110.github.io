@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hadoop | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hadoop一概述狭义上来说Hadoop就是:  HDFS ：分布式文件系统 MapReduce : 分布式计算系统 Yarn：分布式样集群资源管理  广义上来说: Hadoop指代大数据的一个生态圈,包括很多其他软件:  历史版本与发行公司2.1 Hadoop历史版本 1.x版本系列：hadoop版本当中的第二代开源版本，主要修复0.x版本的一些bug等 2.x版本系列：架构产生重大变化，引入了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/Hadoop/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hadoop一概述狭义上来说Hadoop就是:  HDFS ：分布式文件系统 MapReduce : 分布式计算系统 Yarn：分布式样集群资源管理  广义上来说: Hadoop指代大数据的一个生态圈,包括很多其他软件:  历史版本与发行公司2.1 Hadoop历史版本 1.x版本系列：hadoop版本当中的第二代开源版本，主要修复0.x版本的一些bug等 2.x版本系列：架构产生重大变化，引入了">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://manzhong.github.io/images/hadoop/1558225014064.png">
+<meta property="og:image" content="https://manzhong.github.io/images/hadoop/1558232908565.png">
+<meta property="og:image" content="https://manzhong.github.io/images/hadoop/1558232924095.png">
+<meta property="og:image" content="https://manzhong.github.io/images/hadoop/1558232966712.png">
+<meta property="og:image" content="https://manzhong.github.io/images/hadoop/1558232980575.png">
+<meta property="og:image" content="https://manzhong.github.io/images/hadoop/1558232995675.png">
+<meta property="og:updated_time" content="2019-08-08T03:34:14.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hadoop">
+<meta name="twitter:description" content="Hadoop一概述狭义上来说Hadoop就是:  HDFS ：分布式文件系统 MapReduce : 分布式计算系统 Yarn：分布式样集群资源管理  广义上来说: Hadoop指代大数据的一个生态圈,包括很多其他软件:  历史版本与发行公司2.1 Hadoop历史版本 1.x版本系列：hadoop版本当中的第二代开源版本，主要修复0.x版本的一些bug等 2.x版本系列：架构产生重大变化，引入了">
+<meta name="twitter:image" content="https://manzhong.github.io/images/hadoop/1558225014064.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Hadoop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Hadoop/" class="article-date">
+  <time datetime="2019-08-08T03:30:17.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hadoop
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h1><h2 id="一概述"><a href="#一概述" class="headerlink" title="一概述"></a>一概述</h2><p>狭义上来说Hadoop就是:</p>
+<ul>
+<li>HDFS ：分布式文件系统</li>
+<li>MapReduce : 分布式计算系统</li>
+<li>Yarn：分布式样集群资源管理</li>
+</ul>
+<p>广义上来说:</p>
+<p>Hadoop指代大数据的一个生态圈,包括很多其他软件:</p>
+<p><a href="https://manzhong.github.io/images/hadoop/1558225014064.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/hadoop/1558225014064.png" alt="img"></a></p>
+<h3 id="历史版本与发行公司"><a href="#历史版本与发行公司" class="headerlink" title="历史版本与发行公司"></a>历史版本与发行公司</h3><p>2.1 Hadoop历史版本</p>
+<p>1.x版本系列：hadoop版本当中的第二代开源版本，主要修复0.x版本的一些bug等</p>
+<p>2.x版本系列：架构产生重大变化，引入了yarn平台等许多新特性</p>
+<p>3.x版本系列: 加入多namenoode新特性</p>
+<h5 id="2-2-Hadoop三大发行版公司"><a href="#2-2-Hadoop三大发行版公司" class="headerlink" title="2.2 Hadoop三大发行版公司"></a>2.2 Hadoop三大发行版公司</h5><ul>
+<li>免费开源版本apache:</li>
+</ul>
+<p><a href="http://hadoop.apache.org/" target="_blank" rel="noopener">http://hadoop.apache.org/</a></p>
+<p>优点：拥有全世界的开源贡献者，代码更新迭代版本比较快，</p>
+<p>缺点：版本的升级，版本的维护，版本的兼容性，版本的补丁都可能考虑不太周到，</p>
+<p>apache所有软件的下载地址（包括各种历史版本）：</p>
+<p><a href="http://archive.apache.org/dist/" target="_blank" rel="noopener">http://archive.apache.org/dist/</a></p>
+<ul>
+<li>免费开源版本hortonWorks：</li>
+</ul>
+<p><a href="https://hortonworks.com/" target="_blank" rel="noopener">https://hortonworks.com/</a></p>
+<p>hortonworks主要是雅虎主导Hadoop开发的副总裁，带领二十几个核心成员成立Hortonworks，核心产品软件HDP（ambari），HDF免费开源，并且提供一整套的web管理界面，供我们可以通过web界面管理我们的集群状态，web管理界面软件HDF网址（<a href="http://ambari.apache.org/" target="_blank" rel="noopener">http://ambari.apache.org/</a>）</p>
+<ul>
+<li>软件收费版本ClouderaManager:</li>
+</ul>
+<p><a href="https://www.cloudera.com/" target="_blank" rel="noopener">https://www.cloudera.com/</a></p>
+<p>cloudera主要是美国一家大数据公司在apache开源hadoop的版本上，通过自己公司内部的各种补丁，实现版本之间的稳定运行，大数据生态圈的各个版本的软件都提供了对应的版本，解决了版本的升级困难，版本兼容性等各种问题</p>
+<h2 id="二架构"><a href="#二架构" class="headerlink" title="二架构"></a>二架构</h2><h4 id="1-x的版本架构模型介绍"><a href="#1-x的版本架构模型介绍" class="headerlink" title="1.x的版本架构模型介绍"></a>1.x的版本架构模型介绍</h4><p><a href="https://manzhong.github.io/images/hadoop/1558232908565.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/hadoop/1558232908565.png" alt="img"></a></p>
+<p>文件系统核心模块：</p>
+<p>NameNode：集群当中的主节点，管理元数据(文件的大小，文件的位置，文件的权限)，主要用于管理集群当中的各种数据</p>
+<p>secondaryNameNode：主要能用于hadoop当中元数据信息的辅助管理</p>
+<p>DataNode：集群当中的从节点，主要用于存储集群当中的各种数据</p>
+<p>数据计算核心模块：</p>
+<p>JobTracker：接收用户的计算请求任务，并分配任务给从节点</p>
+<p>TaskTracker：负责执行主节点JobTracker分配的任务</p>
+<h4 id="2-x的版本架构模型介绍"><a href="#2-x的版本架构模型介绍" class="headerlink" title="2.x的版本架构模型介绍"></a>2.x的版本架构模型介绍</h4><p>引入了yarn,其中MapReduce运行在yarn中</p>
+<p><strong>第一种：NameNode与ResourceManager单节点架构模型</strong></p>
+<p><a href="https://manzhong.github.io/images/hadoop/1558232924095.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/hadoop/1558232924095.png" alt="img"></a></p>
+<p>文件系统核心模块：</p>
+<p>NameNode：集群当中的主节点，主要用于管理集群当中的各种数据</p>
+<p>secondaryNameNode：主要能用于hadoop当中元数据信息的辅助管理</p>
+<p>DataNode：集群当中的从节点，主要用于存储集群当中的各种数据</p>
+<p>数据计算核心模块：</p>
+<p>ResourceManager：接收用户的计算请求任务，并负责集群的资源分配</p>
+<p>NodeManager：负责执行主节点APPmaster分配的任务</p>
+<p><strong>第二种：NameNode单节点与ResourceManager高可用架构模型</strong></p>
+<p><a href="https://manzhong.github.io/images/hadoop/1558232966712.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/hadoop/1558232966712.png" alt="img"></a></p>
+<p>文件系统核心模块：</p>
+<p>NameNode：集群当中的主节点，主要用于管理集群当中的各种数据</p>
+<p>secondaryNameNode：主要能用于hadoop当中元数据信息的辅助管理</p>
+<p>DataNode：集群当中的从节点，主要用于存储集群当中的各种数据</p>
+<p>数据计算核心模块：</p>
+<p>ResourceManager：接收用户的计算请求任务，并负责集群的资源分配，以及计算任务的划分，通过zookeeper实现ResourceManager的高可用</p>
+<p>NodeManager：负责执行主节点ResourceManager分配的任务</p>
+<p><strong>第三种：NameNode高可用与ResourceManager单节点架构模型</strong></p>
+<p><a href="https://manzhong.github.io/images/hadoop/1558232980575.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/hadoop/1558232980575.png" alt="img"></a></p>
+<p>文件系统核心模块：</p>
+<p>NameNode：集群当中的主节点，主要用于管理集群当中的各种数据，其中nameNode可以有两个，形成高可用状态</p>
+<p>DataNode：集群当中的从节点，主要用于存储集群当中的各种数据</p>
+<p>JournalNode：文件系统元数据信息管理</p>
+<p>数据计算核心模块：</p>
+<p>ResourceManager：接收用户的计算请求任务，并负责集群的资源分配，以及计算任务的划分</p>
+<p>NodeManager：负责执行主节点ResourceManager分配的任务</p>
+<p><strong>第四种：NameNode高可用与ResourceManager高可用架构模型</strong></p>
+<p><a href="https://manzhong.github.io/images/hadoop/1558232995675.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/hadoop/1558232995675.png" alt="img"></a></p>
+<p>文件系统核心模块：</p>
+<p>NameNode：集群当中的主节点，主要用于管理集群当中的各种数据，一般都是使用两个，实现HA高可用</p>
+<p>JournalNode：元数据信息管理进程，一般都是奇数个</p>
+<p>DataNode：从节点，用于数据的存储</p>
+<p>数据计算核心模块：</p>
+<p>ResourceManager：Yarn平台的主节点，主要用于接收各种任务，通过两个，构建成高可用</p>
+<p>NodeManager：Yarn平台的从节点，主要用于处理ResourceManager分配的任务</p>
+<h2 id="三Apache-hadoop-编译"><a href="#三Apache-hadoop-编译" class="headerlink" title="三Apache hadoop 编译"></a>三Apache hadoop 编译</h2><h2 id="四-安装Apache-Hadoop"><a href="#四-安装Apache-Hadoop" class="headerlink" title="四 安装Apache Hadoop"></a>四 安装Apache Hadoop</h2><p>例如 以三台服务为例:</p>
+<p><strong>节点规划:</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">服务器IP</th>
+<th align="left">192.168.174.***</th>
+<th align="left">192.168.174.***</th>
+<th align="left">192.168.174.***</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">主机名</td>
+<td align="left">node01</td>
+<td align="left">node02</td>
+<td align="left">node03</td>
+</tr>
+<tr>
+<td align="left">NameNode</td>
+<td align="left">是</td>
+<td align="left">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="left">SecondaryNameNode</td>
+<td align="left">是</td>
+<td align="left">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="left">dataNode</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">ResourceManager</td>
+<td align="left">是</td>
+<td align="left">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="left">NodeManager</td>
+<td align="left">是</td>
+<td align="left">是</td>
+<td align="left">是</td>
+</tr>
+</tbody></table>
+<p>解压:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf hadoop-2.7.5.tar.gz -C ../servers/</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2 修改配置文件"></a>2 修改配置文件</h3><p>配置文件位置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd  /export/servers/hadoop-2.7.5/etc/hadoop</span><br><span class="line">vim  core-site.xml</span><br></pre></td></tr></table></figure>
+
+<p>修改core-site.xml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">  you may not use this file except in compliance with the License.</span><br><span class="line">  You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">  Unless required by applicable law or agreed to in writing, software</span><br><span class="line">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">  See the License for the specific language governing permissions and</span><br><span class="line">  limitations under the License. See accompanying LICENSE file.</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;!--  指定集群的文件系统类型:分布式文件系统 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;hdfs://node01:8020&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!--  指定临时文件存储目录 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;/export/servers/hadoop-2.7.5/hadoopDatas/tempDatas&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!--  缓冲区大小，实际工作中根据服务器性能动态调整 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;io.file.buffer.size&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;4096&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--  开启hdfs的垃圾桶机制，删除掉的数据可以从垃圾桶中回收，单位分钟 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;fs.trash.interval&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;10080&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改hdfs-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line">  you may not use this file except in compliance with the License.</span><br><span class="line">  You may obtain a copy of the License at</span><br><span class="line"></span><br><span class="line">    http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line"></span><br><span class="line">  Unless required by applicable law or agreed to in writing, software</span><br><span class="line">  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line">  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line">  See the License for the specific language governing permissions and</span><br><span class="line">  limitations under the License. See accompanying LICENSE file.</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Put site-specific property overrides in this file. --&gt;</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">	 &lt;property&gt;</span><br><span class="line">			&lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;</span><br><span class="line">			&lt;value&gt;node01:50090&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 指定namenode的访问地址和端口 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.namenode.http-address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;node01:50070&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!-- 指定namenode元数据的存放位置 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;file:///export/servers/hadoop-2.7.5/hadoopDatas/namenodeDatas,file:///export/servers/hadoop-2.7.5/hadoopDatas/namenodeDatas2&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!--  定义dataNode数据存储的节点位置，实际工作中，一般先确定磁盘的挂载目录，然后多个目录用，进行分割  --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;file:///export/servers/hadoop-2.7.5/hadoopDatas/datanodeDatas,file:///export/servers/hadoop-2.7.5/hadoopDatas/datanodeDatas2&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 指定namenode日志文件的存放目录 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.namenode.edits.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;file:///export/servers/hadoop-2.7.5/hadoopDatas/nn/edits&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;file:///export/servers/hadoop-2.7.5/hadoopDatas/snn/name&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.namenode.checkpoint.edits.dir&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;file:///export/servers/hadoop-2.7.5/hadoopDatas/dfs/snn/edits&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!-- 文件切片的副本个数--&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;3&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 设置HDFS的文件权限--&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.permissions&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 设置一个文件切片的大小：128M--&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;dfs.blocksize&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;134217728&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改hadoop-env.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/export/servers/jdk1.8.0_141</span><br></pre></td></tr></table></figure>
+
+<p>修改mapred-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    </span><br><span class="line">     &lt;!-- 如果启用了该功能，则会将一个“小的application”的所有子task在同一个JVM里面执行，达到JVM重用的目的。这个JVM便是负责该application的ApplicationMaster所用的JVM --&gt;</span><br><span class="line">  &lt;!--mapreduce.job.ubertask.maxmaps | 9 | map任务数的阀值，如果一个application包含的map数小于该值的定义，那么该application就会被认为是一个小的application--&gt;</span><br><span class="line">  &lt;!-- mapreduce.job.ubertask.maxreduces | 1 | reduce任务数的阀值，如果一个application包含的reduce数小于该值的定义，那么该application就会被认为是一个小的application。不过目前Yarn不支持该值大于1的情况 --&gt;</span><br><span class="line">  &lt;!-- mapreduce.job.ubertask.maxbytes | | application的输入大小的阀值。默认为dfs.block.size的值。当实际的输入大小部超过该值的设定，便会认为该application为一个小的application。 --&gt;</span><br><span class="line">    </span><br><span class="line">	&lt;!-- 开启MapReduce小任务模式 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.job.ubertask.enable&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 设置历史任务的主机和端口 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;node01:10020&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 设置网页访问历史任务的主机和端口 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;node01:19888&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;property&gt;</span><br><span class="line">                &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改yarn-site.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">	&lt;!-- 配置yarn主节点的位置 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;node01&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;!-- 开启日志聚合功能 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!-- 设置聚合日志在hdfs上的保存时间 --&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;604800&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;!-- 设置yarn集群的内存分配方案 --&gt;</span><br><span class="line">	&lt;property&gt;    </span><br><span class="line">		&lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;    </span><br><span class="line">		&lt;value&gt;20480&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">	&lt;property&gt;  </span><br><span class="line">        	 &lt;name&gt;yarn.scheduler.minimum-allocation-mb&lt;/name&gt;</span><br><span class="line">         	&lt;value&gt;2048&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.nodemanager.vmem-pmem-ratio&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;2.1&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改mapred-env.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/export/servers/jdk1.8.0_141</span><br></pre></td></tr></table></figure>
+
+<p>修改slaves</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node01</span><br><span class="line">node02</span><br><span class="line">node03</span><br></pre></td></tr></table></figure>
+
+<p>创建目录:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/tempDatas</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/namenodeDatas</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/namenodeDatas2</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/datanodeDatas</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/datanodeDatas2</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/nn/edits</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/snn/name</span><br><span class="line">mkdir -p /export/servers/hadoop-2.7.5/hadoopDatas/dfs/snn/edits</span><br></pre></td></tr></table></figure>
+
+<p>安装包分发:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r hadoop-2.7.5 node02:$PWD</span><br><span class="line">scp -r hadoop-2.7.5 node03:$PWD</span><br></pre></td></tr></table></figure>
+
+<p>配置Hadoop环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim  /etc/profile</span><br><span class="line">export HADOOP_HOME=/export/servers/hadoop-2.7.5</span><br><span class="line">export PATH=:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h4 id="第四步：启动集群"><a href="#第四步：启动集群" class="headerlink" title="第四步：启动集群"></a>第四步：启动集群</h4><p>要启动 Hadoop 集群，需要启动 HDFS 和 YARN 两个模块。<br>注意： 首次启动 HDFS 时，必须对其进行格式化操作。 本质上是一些清理和<br>准备工作，因为此时的 HDFS 在物理上还是不存在的。</p>
+<p>hdfs namenode -format 或者 hadoop namenode –format</p>
+<p>准备启动</p>
+<p>第一台机器执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd  /export/servers/hadoop-2.7.5/</span><br><span class="line">bin/hdfs namenode -format</span><br><span class="line">sbin/start-dfs.sh</span><br><span class="line">sbin/start-yarn.sh</span><br><span class="line">sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Hadoop/" data-id="cjz24s2wx0005u8u5ti4fgkjn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/08/Hdfs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hdfs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/08/MapReduce/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MapReduce</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/08/Linux根目录权限修复方法/">Linux根目录权限修复方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Linux常用命令/">Linux常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Linux开发环境/">Linux开发环境</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/shell/">shell</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Zookeeper/">Zookeeper</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
