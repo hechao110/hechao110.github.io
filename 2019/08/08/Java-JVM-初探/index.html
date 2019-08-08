@@ -1,20 +1,244 @@
-extends base
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
 
-block nav
-    - var pageName = "POST"
-    include _partial/menu
+  
+  <title>Java-JVM-初探 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1JVM  一 Java -version 1 hotspot 热点探测 jvm核心 jdk1.5 之后有 为执行引擎 优化class文件 因为CPU不会直接执行class文件 要转为二进制才可以 2 jdk 有client 和server默认启动为client 可在jre/lib/i386 里吧两者顺序调整 前面的先起 当大型项目时 可改为server 在jdk1.8之后都默认为server 且">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java-JVM-初探">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/Java-JVM-初探/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1JVM  一 Java -version 1 hotspot 热点探测 jvm核心 jdk1.5 之后有 为执行引擎 优化class文件 因为CPU不会直接执行class文件 要转为二进制才可以 2 jdk 有client 和server默认启动为client 可在jre/lib/i386 里吧两者顺序调整 前面的先起 当大型项目时 可改为server 在jdk1.8之后都默认为server 且">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg">
+<meta property="og:image" content="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg">
+<meta property="og:image" content="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg">
+<meta property="og:updated_time" content="2019-08-08T03:17:56.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java-JVM-初探">
+<meta name="twitter:description" content="1JVM  一 Java -version 1 hotspot 热点探测 jvm核心 jdk1.5 之后有 为执行引擎 优化class文件 因为CPU不会直接执行class文件 要转为二进制才可以 2 jdk 有client 和server默认启动为client 可在jre/lib/i386 里吧两者顺序调整 前面的先起 当大型项目时 可改为server 在jdk1.8之后都默认为server 且">
+<meta name="twitter:image" content="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java-JVM-初探" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Java-JVM-初探/" class="article-date">
+  <time datetime="2019-08-08T03:16:51.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java-JVM-初探
+    </h1>
+  
 
-block header
-    - var pageHeader = page.title
-    include _partial/body_header
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVM</span><br></pre></td></tr></table></figure>
 
-block content
-    div.body__content
-        if page.tags.length > 0
-            div.body__item.post_tags
-                for tag in page.tags.toArray()
-                    a(href=url_for(tag.path) class="post_tag")= tag.name
-        if page.content.length > 0
-            div.body__item
-                != page.more
-    div#disqus_thread
+<p>一 Java -version</p>
+<p>1 hotspot 热点探测 jvm核心 jdk1.5 之后有 为执行引擎</p>
+<p>优化class文件 因为CPU不会直接执行class文件 要转为二进制才可以</p>
+<p>2 jdk 有client 和server默认启动为client 可在jre/lib/i386 里吧两者顺序调整 前面的先起</p>
+<p>当大型项目时 可改为server</p>
+<p>在jdk1.8之后都默认为server 且client 为ignore</p>
+<p>二 Jvm结构</p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" alt="img"></a></p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg" alt="img"></a></p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg" alt="img"></a></p>
+<p>三 堆结构图及分代</p>
+<p>Jvm 根据对象的存活周期不同 把堆内存分为 新生代,老年代,和永久代</p>
+<p>目的 提高对象内存分配和垃圾回收效率</p>
+<p>经过多次回收荏苒存活的对象放在老年代,静态属性和类信息放在永久代,</p>
+<p>新生代中对象存活时间短 在新生代中做垃圾回收 老年代垃圾回收频率少</p>
+<p>永久代一般不进行垃圾回收,可根据不同的代用不同的;垃圾回收算法.</p>
+<p>堆有五个区(细)</p>
+<p>新生代(3个) Eden from to eden 回收最频繁 =幸存的放在from和to的幸存区在此幸存放在 老年去</p>
+<p>Old区</p>
+<p>永久区</p>
+<p>1新生代</p>
+<p>新创建的对象放在新生代,这里边存活率很低,一次回收可回收百分之八十到九十五, Eden from to 比例8:1:1</p>
+<p>在jdk1.8和之后没有老年代 老年代与方法区作用类似;</p>
+<p>三 垃圾回收</p>
+<p>1常见垃圾回收算法</p>
+<p>1.1</p>
+<p>1.2复制算法</p>
+<p>1.3标记清除</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Java-JVM-初探/" data-id="cjz2c0w7n0000agu5ylwckjgy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/08/Yarn-资源调度/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Yarn-资源调度
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/08/数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/08/Hbase/">Hbase</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Storm/">Storm</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Scala入门/">Scala入门</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
