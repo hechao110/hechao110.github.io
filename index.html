@@ -62,6 +62,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Java-JVM-初探" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Java-JVM-初探/" class="article-date">
+  <time datetime="2019-08-08T03:16:51.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/Java-JVM-初探/">Java-JVM-初探</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVM</span><br></pre></td></tr></table></figure>
+
+<p>一 Java -version</p>
+<p>1 hotspot 热点探测 jvm核心 jdk1.5 之后有 为执行引擎</p>
+<p>优化class文件 因为CPU不会直接执行class文件 要转为二进制才可以</p>
+<p>2 jdk 有client 和server默认启动为client 可在jre/lib/i386 里吧两者顺序调整 前面的先起</p>
+<p>当大型项目时 可改为server</p>
+<p>在jdk1.8之后都默认为server 且client 为ignore</p>
+<p>二 Jvm结构</p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" alt="img"></a></p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg" alt="img"></a></p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg" alt="img"></a></p>
+<p>三 堆结构图及分代</p>
+<p>Jvm 根据对象的存活周期不同 把堆内存分为 新生代,老年代,和永久代</p>
+<p>目的 提高对象内存分配和垃圾回收效率</p>
+<p>经过多次回收荏苒存活的对象放在老年代,静态属性和类信息放在永久代,</p>
+<p>新生代中对象存活时间短 在新生代中做垃圾回收 老年代垃圾回收频率少</p>
+<p>永久代一般不进行垃圾回收,可根据不同的代用不同的;垃圾回收算法.</p>
+<p>堆有五个区(细)</p>
+<p>新生代(3个) Eden from to eden 回收最频繁 =幸存的放在from和to的幸存区在此幸存放在 老年去</p>
+<p>Old区</p>
+<p>永久区</p>
+<p>1新生代</p>
+<p>新创建的对象放在新生代,这里边存活率很低,一次回收可回收百分之八十到九十五, Eden from to 比例8:1:1</p>
+<p>在jdk1.8和之后没有老年代 老年代与方法区作用类似;</p>
+<p>三 垃圾回收</p>
+<p>1常见垃圾回收算法</p>
+<p>1.1</p>
+<p>1.2复制算法</p>
+<p>1.3标记清除</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Java-JVM-初探/" data-id="cjz242ynd00009wu5bxup049k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-数据库" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/08/数据库/" class="article-date">
@@ -1670,7 +1736,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/数据库/" data-id="cjz23tvig0002rgu5432cs6jo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/08/数据库/" data-id="cjz242yo700039wu5ru8fjytw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1730,7 +1796,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/Stream与Lambda/" data-id="cjz23tvh90000rgu5mc6h3mgu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/08/Stream与Lambda/" data-id="cjz242ynj00019wu5l0wzho97" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2326,7 +2392,7 @@ public   static void deleteRows(int companyId){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/08/Kudo/" data-id="cjz23tvhv0001rgu5rwa1ez7a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/08/Kudo/" data-id="cjz242yo200029wu5w4g3pf33" class="article-share-link">Share</a>
       
       
     </footer>
@@ -2365,6 +2431,10 @@ public   static void deleteRows(int companyId){
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/08/Java-JVM-初探/">Java-JVM-初探</a>
+          </li>
         
           <li>
             <a href="/2019/08/08/数据库/">数据库</a>
