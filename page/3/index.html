@@ -5,19 +5,15 @@
   
 
   
-  <title>数据库 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、数据库介绍篇1.1什么是数据库 数据库：保存数据的仓库。它体现我们电脑中，就是一个文件系统。然后把数据都保存这些特殊的文件中，并且需要使用固定的语言（SQL语言）去操作文件中的数据。 技术定义：  数据库(Database)是按照数据结构来组织、[存储和管理数据的建立在计算机存储设备上的仓库。 1.2数据库介绍 我们开发应用程序的时候，程序中的所有数据，最后都需要保存到专业软件中。这些专业的保">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据库">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/数据库/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、数据库介绍篇1.1什么是数据库 数据库：保存数据的仓库。它体现我们电脑中，就是一个文件系统。然后把数据都保存这些特殊的文件中，并且需要使用固定的语言（SQL语言）去操作文件中的数据。 技术定义：  数据库(Database)是按照数据结构来组织、[存储和管理数据的建立在计算机存储设备上的仓库。 1.2数据库介绍 我们开发应用程序的时候，程序中的所有数据，最后都需要保存到专业软件中。这些专业的保">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-08T03:07:59.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库">
-<meta name="twitter:description" content="1、数据库介绍篇1.1什么是数据库 数据库：保存数据的仓库。它体现我们电脑中，就是一个文件系统。然后把数据都保存这些特殊的文件中，并且需要使用固定的语言（SQL语言）去操作文件中的数据。 技术定义：  数据库(Database)是按照数据结构来组织、[存储和管理数据的建立在计算机存储设备上的仓库。 1.2数据库介绍 我们开发应用程序的时候，程序中的所有数据，最后都需要保存到专业软件中。这些专业的保">
+<meta name="twitter:title" content="Hexo">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,7 +60,75 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-数据库" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-Java-JVM-初探" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Java-JVM-初探/" class="article-date">
+  <time datetime="2019-08-08T03:16:51.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/Java-JVM-初探/">Java-JVM-初探</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVM</span><br></pre></td></tr></table></figure>
+
+<p>一 Java -version</p>
+<p>1 hotspot 热点探测 jvm核心 jdk1.5 之后有 为执行引擎</p>
+<p>优化class文件 因为CPU不会直接执行class文件 要转为二进制才可以</p>
+<p>2 jdk 有client 和server默认启动为client 可在jre/lib/i386 里吧两者顺序调整 前面的先起</p>
+<p>当大型项目时 可改为server</p>
+<p>在jdk1.8之后都默认为server 且client 为ignore</p>
+<p>二 Jvm结构</p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" alt="img"></a></p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B.jpg" alt="img"></a></p>
+<p><a href="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/jvm/jvm%E7%AE%80%E4%BB%8B2.jpg" alt="img"></a></p>
+<p>三 堆结构图及分代</p>
+<p>Jvm 根据对象的存活周期不同 把堆内存分为 新生代,老年代,和永久代</p>
+<p>目的 提高对象内存分配和垃圾回收效率</p>
+<p>经过多次回收荏苒存活的对象放在老年代,静态属性和类信息放在永久代,</p>
+<p>新生代中对象存活时间短 在新生代中做垃圾回收 老年代垃圾回收频率少</p>
+<p>永久代一般不进行垃圾回收,可根据不同的代用不同的;垃圾回收算法.</p>
+<p>堆有五个区(细)</p>
+<p>新生代(3个) Eden from to eden 回收最频繁 =幸存的放在from和to的幸存区在此幸存放在 老年去</p>
+<p>Old区</p>
+<p>永久区</p>
+<p>1新生代</p>
+<p>新创建的对象放在新生代,这里边存活率很低,一次回收可回收百分之八十到九十五, Eden from to 比例8:1:1</p>
+<p>在jdk1.8和之后没有老年代 老年代与方法区作用类似;</p>
+<p>三 垃圾回收</p>
+<p>1常见垃圾回收算法</p>
+<p>1.1</p>
+<p>1.2复制算法</p>
+<p>1.3标记清除</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Java-JVM-初探/" data-id="cjz257ywa0000bcu5ih1f2b8q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/08/数据库/" class="article-date">
   <time datetime="2019-08-08T03:06:05.000Z" itemprop="datePublished">2019-08-08</time>
@@ -77,8 +141,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      数据库
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/数据库/">数据库</a>
     </h1>
   
 
@@ -1678,28 +1742,76 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2019/08/08/Java-JVM-初探/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Java-JVM-初探
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/08/08/Stream与Lambda/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Stream与Lambda</div>
-    </a>
-  
-</nav>
+</article>
+
 
   
+    <article id="post-Stream与Lambda" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Stream与Lambda/" class="article-date">
+  <time datetime="2019-08-08T02:59:06.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/08/Stream与Lambda/">Stream与Lambda</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>stream 流<br>jdk1.8 操作集合和数组</p>
+<p>集合<br>list.stream()<br>数组<br>Stream.of(数组)<br>特点<br>只能使用一次 后流关闭</p>
+<p>方法有两种 延迟方法 终结方法(count() forEach())除了终结 都是延迟</p>
+<p>方法(全支持 lambda表达式)<br>forEach()遍历<br>filter() 过滤<br>map() 映射 如string数组 映射为integer数组 也可映射对象<br>count() 获取个数<br>limit() 获取前几个 传入 long<br>skip() 跳过 几个参数 传入 long<br>concat() 合并流 传入 两个流</p>
+<p>常用的函数式接口<br>Supplier<br>Consumer<br>Predicate<br>Function</p>
+<h1 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h1><h2 id="一函数式编程思想"><a href="#一函数式编程思想" class="headerlink" title="一函数式编程思想"></a>一函数式编程思想</h2><p>面向对象的思想:<br>做一件事情,找一个能解决这个事情的对象,调用对象的方法,完成事情.<br>函数式编程思想:<br>只要能获取到结果,谁去做的,怎么做的都不重要,重视的是结果,不重视过程</p>
+<h2 id="二-Lambda-转换线程写法"><a href="#二-Lambda-转换线程写法" class="headerlink" title="二 Lambda 转换线程写法"></a>二 Lambda 转换线程写法</h2><p>java原始写法匿名内部类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Demo01Runnable &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// 匿名内部类</span><br><span class="line">		Runnable task = new Runnable() &#123;</span><br><span class="line">			@Override</span><br><span class="line">			public void run() &#123; // 覆盖重写抽象方法</span><br><span class="line">				System.out.println(&quot;多线程任务执行！&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		new Thread(task).start(); // 启动线程</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码分析:</p>
+<p>对于Runnable 的匿名内部类用法，可以分析出几点内容：<br>Thread 类需要Runnable 接口作为参数，其中的抽象run 方法是用来指定线程任务内容的核心；</p>
+<p> 为了指定run 的方法体，不得不需要Runnable 接口的实现类；</p>
+<p> 为了省去定义一个RunnableImpl 实现类的麻烦，不得不使用匿名内部类；<br>​ 必须覆盖重写抽象run 方法，所以方法名称、方法参数、方法返回值不得不再写一遍，且不能写错；<br>​ 而实际上，似乎只有方法体才是关键所在。</p>
+<h3 id="思想转换"><a href="#思想转换" class="headerlink" title="思想转换"></a>思想转换</h3><p>用lambda</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Demo02LambdaRunnable &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new Thread(() ‐&gt; System.out.println(&quot;多线程任务执行！&quot;)).start(); // 启动线程</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="匿名内部类分析"><a href="#匿名内部类分析" class="headerlink" title="匿名内部类分析"></a>匿名内部类分析</h2><p>匿名内部类的好处与弊端<br>一方面，匿名内部类可以帮我们省去实现类的定义；另一方面，匿名内部类的语法——确实太复杂了！<br>语义分析<br>仔细分析该代码中的语义， Runnable 接口只有一个run 方法的定义：<br>public abstract void run();<br>即制定了一种做事情的方案（其实就是一个函数）：<br>无参数：不需要任何条件即可执行该方案。<br>无返回值：该方案不产生任何结果。<br>代码块（方法体）：该方案的具体执行步骤。<br>同样的语义体现在Lambda 语法中，要更加简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">() ‐&gt; System.out.println(&quot;多线程任务执行！&quot;)</span><br></pre></td></tr></table></figure>
+
+<p> 前面的一对小括号即run 方法的参数（无），代表不需要任何条件；<br>​ 中间的一个箭头代表将前面的参数传递给后面的代码；<br>​ 后面的输出语句即业务逻辑代码。</p>
+<h2 id="lambda-格式"><a href="#lambda-格式" class="headerlink" title="lambda 格式"></a>lambda 格式</h2><p>Lambda省去面向对象的条条框框，格式由3个部分组成：<br>一些参数<br>一个箭头<br>一段代码<br>Lambda表达式的标准格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(参数类型 参数名称) ‐&gt; &#123; 代码语句 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>格式说明：<br>小括号内的语法与传统方法参数列表一致：无参数则留空；多个参数则用逗号分隔。<br>-&gt; 是新引入的语法格式，代表指向动作。<br>大括号内的语法与传统方法体要求基本一致。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Stream与Lambda/" data-id="cjz257ywm0003bcu5pijktgws" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 
 </section>
         
