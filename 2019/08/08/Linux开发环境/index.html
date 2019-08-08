@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux开发环境 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="linux常用软件安装如有需要,自行参考 一 mysql的安装第一步：在线安装mysql相关的软件包 1yum  install  mysql  mysql-server  mysql-devel  第二步：启动mysql的服务 1/etc/init.d/mysqld start  第三步：通过mysql安装自带脚本进行设置 1/usr/bin/mysql_secure_installation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux开发环境">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/Linux开发环境/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="linux常用软件安装如有需要,自行参考 一 mysql的安装第一步：在线安装mysql相关的软件包 1yum  install  mysql  mysql-server  mysql-devel  第二步：启动mysql的服务 1/etc/init.d/mysqld start  第三步：通过mysql安装自带脚本进行设置 1/usr/bin/mysql_secure_installation">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-08T03:37:00.856Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux开发环境">
+<meta name="twitter:description" content="linux常用软件安装如有需要,自行参考 一 mysql的安装第一步：在线安装mysql相关的软件包 1yum  install  mysql  mysql-server  mysql-devel  第二步：启动mysql的服务 1/etc/init.d/mysqld start  第三步：通过mysql安装自带脚本进行设置 1/usr/bin/mysql_secure_installation">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux开发环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Linux开发环境/" class="article-date">
+  <time datetime="2019-08-08T03:31:32.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux开发环境
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="linux常用软件安装"><a href="#linux常用软件安装" class="headerlink" title="linux常用软件安装"></a>linux常用软件安装</h1><p>如有需要,自行参考</p>
+<h2 id="一-mysql的安装"><a href="#一-mysql的安装" class="headerlink" title="一 mysql的安装"></a>一 mysql的安装</h2><p>第一步：在线安装mysql相关的软件包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum  install  mysql  mysql-server  mysql-devel</span><br></pre></td></tr></table></figure>
+
+<p>第二步：启动mysql的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysqld start</span><br></pre></td></tr></table></figure>
+
+<p>第三步：通过mysql安装自带脚本进行设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+<p>第四步：进入mysql的客户端然后进行授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> grant all privileges on *.* to &apos;root&apos;@&apos;%&apos; identified by &apos;123456&apos; with grant option;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>yum 安装的卸载</p>
+<p><strong>一、使用以下命令查看当前安装mysql情况，查找以前是否装有mysql</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rpm -qa|``grep` `-i mysql`</span><br></pre></td></tr></table></figure>
+
+<p>显示之前安装了：</p>
+<p> MySQL-client-5.5.25a-1.rhel5</p>
+<p> MySQL-server-5.5.25a-1.rhel5</p>
+<p><strong>2、停止mysql服务、删除之前安装的mysql</strong></p>
+<p>service mysqld stop</p>
+<p>删除命令：<code>rpm -e –nodeps 包名</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rpm -ev MySQL-client-5.5.25a-1.rhel5 ``rpm -ev MySQL-server-5.5.25a-1.rhel5`</span><br></pre></td></tr></table></figure>
+
+<p>如果提示依赖包错误，则使用以下命令尝试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rpm -ev MySQL-client-5.5.25a-1.rhel5 --nodeps`</span><br></pre></td></tr></table></figure>
+
+<p>如果提示错误：<code>error: %preun(xxxxxx) scriptlet failed, exit status 1</code></p>
+<p>则用以下命令尝试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rpm -e --noscripts MySQL-client-5.5.25a-1.rhel5`</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、查找之前老版本mysql的目录、并且删除老版本mysql的文件和库</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`find` `/ -name mysql`</span><br></pre></td></tr></table></figure>
+
+<p>查找结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`find` `/ -name mysql ` `/var/lib/mysql``/var/lib/mysql/mysql``/usr/lib64/mysql`</span><br></pre></td></tr></table></figure>
+
+<p>删除对应的mysql目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rm` `-rf ``/var/lib/mysql``rm` `-rf ``/var/lib/mysql``rm` `-rf ``/usr/lib64/mysql`</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>卸载后/etc/my.cnf不会删除，需要进行手工删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rm` `-rf ``/etc/my``.cnf`</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、再次查找机器是否安装mysql</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`rpm -qa|``grep` `-i mysql`</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-jdk的安装"><a href="#二-jdk的安装" class="headerlink" title="二 jdk的安装"></a>二 jdk的安装</h2><p>1.1 查看自带的openjdk并卸载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查询</span><br><span class="line">rpm -qa | grep java</span><br><span class="line">卸载</span><br><span class="line">rpm -e java-1.6.0-openjdk-1.6.0.41-1.13.13.1.el6_8.x86_64 tzdata-java-2016j-1.el6.noarch java-1.7.0-openjdk-1.7.0.131-2.6.9.0.el6_8.x86_64 --nodeps</span><br></pre></td></tr></table></figure>
+
+<p>–nodeps 不管依赖直接删</p>
+<p>2上传解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u141-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>3配置环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line">添加</span><br><span class="line">export JAVA_HOME=/export/servers/jdk1.8.0_141</span><br><span class="line">export PATH=:$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>4 生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h1 id="zookeeper的安装"><a href="#zookeeper的安装" class="headerlink" title="zookeeper的安装"></a>zookeeper的安装</h1><h1 id="Hadoop的安装"><a href="#Hadoop的安装" class="headerlink" title="Hadoop的安装"></a>Hadoop的安装</h1><h1 id="hive的安装"><a href="#hive的安装" class="headerlink" title="hive的安装"></a>hive的安装</h1><p>1上传压塑包并解压</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-hive-2.1.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>2 解压后可重命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv apache-hive-2.1.1-bin hive</span><br></pre></td></tr></table></figure>
+
+<p>3 安装mysql省略</p>
+<p>4修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp hive-env.sh.template hive-env.sh</span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line">HADOOP_HOME=/export/servers/hadoop-2.7.5</span><br><span class="line">export HIVE_CONF_DIR=/export/servers/hive/conf</span><br></pre></td></tr></table></figure>
+
+<p>创建文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">vim hive-site.xml</span><br><span class="line"></span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">      &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;</span><br><span class="line">      &lt;value&gt;root&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">      &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;</span><br><span class="line">      &lt;value&gt;123456&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">      &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;</span><br><span class="line">      &lt;value&gt;jdbc:mysql://node03:3306/hive?createDatabaseIfNotExist=true&amp;amp;useSSL=false&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">      &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;</span><br><span class="line">      &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">      &lt;name&gt;hive.metastore.schema.verification&lt;/name&gt;</span><br><span class="line">      &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;datanucleus.schema.autoCreateAll&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;true&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line">		&lt;name&gt;hive.server2.thrift.bind.host&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;node03&lt;/value&gt;</span><br><span class="line">   &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>5将数据库驱动加入hive下的lib目录下</p>
+<p>6配置hive环境变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line">export HIVE_HOME=/export/servers/hive</span><br><span class="line">export PATH=:$HIVE_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">配后:</span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h1 id="flume的安装"><a href="#flume的安装" class="headerlink" title="flume的安装"></a>flume的安装</h1><h1 id="sqoop的安装"><a href="#sqoop的安装" class="headerlink" title="sqoop的安装"></a>sqoop的安装</h1><p>安装sqoop的前提是已经具备java和hadoop的环境</p>
+<p>上传解压后:</p>
+<p>配置文件修改:</p>
+<p>conf下的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv sqoop-env-template.sh sqoop-env.sh</span><br><span class="line">vi sqoop-env.sh</span><br><span class="line">export HADOOP_COMMON_HOME= /export/servers/hadoop-2.7.5 </span><br><span class="line">export HADOOP_MAPRED_HOME= /export/servers/hadoop-2.7.5</span><br><span class="line">export HIVE_HOME= /export/servers/hive</span><br></pre></td></tr></table></figure>
+
+<p>把数据库驱动加入lib目录下</p>
+<p>测试:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bin/sqoop list-databases \</span><br><span class="line">--connect jdbc:mysql://node01:3306/ \</span><br><span class="line">--username root \</span><br><span class="line">--password 123456</span><br></pre></td></tr></table></figure>
+
+<p>列出数据库中所有的数据库</p>
+<h1 id="azkaban的安装"><a href="#azkaban的安装" class="headerlink" title="azkaban的安装"></a>azkaban的安装</h1><h1 id="telnet-安装"><a href="#telnet-安装" class="headerlink" title="telnet 安装"></a>telnet 安装</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum list telnet*              列出telnet相关的安装包</span><br><span class="line">yum install telnet-server          安装telnet服务</span><br><span class="line">yum install telnet.*           安装telnet客户端</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Linux开发环境/" data-id="cjz2c0w7u0002agu5mn97ysn1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/08/Linux常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/08/shell/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">shell</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/08/Hbase/">Hbase</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Storm/">Storm</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Scala入门/">Scala入门</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
