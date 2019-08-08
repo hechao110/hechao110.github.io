@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Scala高级 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Scala高级一 高阶函数scala 混合了面向对象和函数式的特性，在函数式编程语言中，函数是“头等公民”，它和Int、String、Class等其他类型处于同等的地位，可以像其他类型的变量一样被传递和操作。 高阶函数包含  作为值的函数 匿名函数 闭包 柯里化等等  1作为值得函数在scala中，函数就像和数字、字符串一样，可以将函数传递给一个方法。我们可以对算法进行封装，然后将具体的动作传递给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scala高级">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/Scala高级/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Scala高级一 高阶函数scala 混合了面向对象和函数式的特性，在函数式编程语言中，函数是“头等公民”，它和Int、String、Class等其他类型处于同等的地位，可以像其他类型的变量一样被传递和操作。 高阶函数包含  作为值的函数 匿名函数 闭包 柯里化等等  1作为值得函数在scala中，函数就像和数字、字符串一样，可以将函数传递给一个方法。我们可以对算法进行封装，然后将具体的动作传递给">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://manzhong.github.io/images/scala/klh.png">
+<meta property="og:image" content="https://manzhong.github.io/images/scala/klhgcjx.png">
+<meta property="og:image" content="https://manzhong.github.io/images/scala/akka.png">
+<meta property="og:image" content="https://manzhong.github.io/images/scala/akkabf.png">
+<meta property="og:image" content="https://manzhong.github.io/images/scala/jctx.png">
+<meta property="og:image" content="https://manzhong.github.io/images/scala/spark.png">
+<meta property="og:updated_time" content="2019-08-08T04:03:33.239Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scala高级">
+<meta name="twitter:description" content="Scala高级一 高阶函数scala 混合了面向对象和函数式的特性，在函数式编程语言中，函数是“头等公民”，它和Int、String、Class等其他类型处于同等的地位，可以像其他类型的变量一样被传递和操作。 高阶函数包含  作为值的函数 匿名函数 闭包 柯里化等等  1作为值得函数在scala中，函数就像和数字、字符串一样，可以将函数传递给一个方法。我们可以对算法进行封装，然后将具体的动作传递给">
+<meta name="twitter:image" content="https://manzhong.github.io/images/scala/klh.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Scala高级" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/08/Scala高级/" class="article-date">
+  <time datetime="2019-08-08T03:55:41.000Z" itemprop="datePublished">2019-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Scala高级
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Scala高级"><a href="#Scala高级" class="headerlink" title="Scala高级"></a>Scala高级</h1><h2 id="一-高阶函数"><a href="#一-高阶函数" class="headerlink" title="一 高阶函数"></a>一 高阶函数</h2><p>scala 混合了面向对象和函数式的特性，在函数式编程语言中，函数是“头等公民”，它和Int、String、Class等其他类型处于同等的地位，可以像其他类型的变量一样被传递和操作。</p>
+<p>高阶函数包含</p>
+<ul>
+<li>作为值的函数</li>
+<li>匿名函数</li>
+<li>闭包</li>
+<li>柯里化等等</li>
+</ul>
+<h3 id="1作为值得函数"><a href="#1作为值得函数" class="headerlink" title="1作为值得函数"></a>1作为值得函数</h3><p>在scala中，函数就像和数字、字符串一样，可以将函数传递给一个方法。我们可以对算法进行封装，然后将具体的动作传递给方法，这种特性很有用。</p>
+<p>我们之前学习过List的map方法，它就可以接收一个函数，完成List的转换。</p>
+<p><strong>例子</strong></p>
+<p><strong>示例说明</strong></p>
+<p>将一个整数列表中的每个元素转换为对应个数的小星星</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List(1, 2, 3...) =&gt; *, **, ***</span><br></pre></td></tr></table></figure>
+
+<p><strong>步骤</strong></p>
+<ol>
+<li>创建一个函数，用于将数字转换为指定个数的小星星</li>
+<li>创建一个列表，调用map方法</li>
+<li>打印转换为的列表</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.highlevel</span><br><span class="line"></span><br><span class="line">object Demo01 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val fun: Int =&gt; String = (num:Int) =&gt; &quot;*&quot; * num</span><br><span class="line">    val strings = (1 to 10).map(fun)</span><br><span class="line">    println(strings)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-匿名函数"><a href="#2-匿名函数" class="headerlink" title="2 匿名函数"></a>2 匿名函数</h3><p><strong>定义</strong></p>
+<p>上面的代码，给(num:Int) =&gt; “<em>” * num函数赋值给了一个变量，但是这种写法有一些啰嗦。在scala中，可以不需要给函数赋值给变量，没有赋值给变量的函数就是*</em>匿名函数**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">val list = List(1, 2, 3, 4)</span><br><span class="line"></span><br><span class="line">// 字符串*方法，表示生成指定数量的字符串</span><br><span class="line">val func_num2star = (num:Int) =&gt; &quot;*&quot; * num</span><br><span class="line"></span><br><span class="line">print(list.map(func_num2star))</span><br></pre></td></tr></table></figure>
+
+<p>使用匿名函数优化上述代码</p>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">object Demo02 &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val strings = (1 to 10).map(x =&gt; &quot;*&quot; * x)</span><br><span class="line"></span><br><span class="line">    println(strings)</span><br><span class="line">// 因为此处num变量只使用了一次，而且只是进行简单的计算，所以可以省略参数列表，使用_替代参数</span><br><span class="line">    val strings2 = (1 to 10 ).map(&quot;*&quot; * _)</span><br><span class="line">    println(strings2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-柯里化"><a href="#3-柯里化" class="headerlink" title="3 柯里化"></a>3 柯里化</h3><p>在scala和spark的源代码中，大量使用到了柯里化。为了后续方便阅读源代码，我们需要来了解下柯里化。</p>
+<p>定义:</p>
+<p>柯里化（Currying）是指将原先接受多个参数的方法转换为多个只有一个参数的参数列表的过程。</p>
+<p><a href="https://manzhong.github.io/images/scala/klh.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/scala/klh.png" alt="img"></a></p>
+<p><strong>柯里化过程解析</strong></p>
+<p><a href="https://manzhong.github.io/images/scala/klhgcjx.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/scala/klhgcjx.png" alt="img"></a></p>
+<p><strong>例子</strong></p>
+<p><strong>示例说明</strong></p>
+<ul>
+<li>编写一个方法，用来完成两个Int类型数字的计算</li>
+<li>具体如何计算封装到函数中</li>
+<li>使用柯里化来实现上述操作</li>
+</ul>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 柯里化：实现对两个数进行计算</span><br><span class="line">package com.nicai.highlevel</span><br><span class="line"></span><br><span class="line">object Demo3 &#123;</span><br><span class="line">  def add(a:Int,b:Int)(cala:(Int,Int) =&gt; Int)=&#123;</span><br><span class="line">    cala(a,b)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(add(1, 2)(_ + _))</span><br><span class="line">    println(add(1, 2)(_ * _))</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包其实就是一个函数，只不过这个函数的返回值依赖于声明在函数外部的变量。</p>
+<p>可以简单认为，就是可以访问不在当前作用域范围的一个函数。</p>
+<p><strong>例子一</strong></p>
+<p>定义一个闭包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.highlevel</span><br><span class="line">//闭包</span><br><span class="line">object Demo4 &#123;</span><br><span class="line">  var x=4</span><br><span class="line">  val add=(y:Int) =&gt; x+y</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(add(5))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>add函数就是一个闭包</p>
+<p><strong>例子二</strong></p>
+<p>柯里化就是一个闭包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def add(x:Int)(y:Int) = &#123;</span><br><span class="line">  x + y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  def add(x:Int) = &#123;</span><br><span class="line">    (y:Int) =&gt; x + y</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">总的:</span><br><span class="line">package com.nicai.highlevel</span><br><span class="line">//闭包二  柯里化就是一个闭包</span><br><span class="line">object Demo5 &#123;</span><br><span class="line">  def add(a:Int)(b:Int): Int =&#123;</span><br><span class="line">    a+b</span><br><span class="line">  &#125;</span><br><span class="line">  def add2(x:Int)=&#123;</span><br><span class="line">    (y:Int) =&gt; x+y</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    println(add(5)(6))  //11</span><br><span class="line">    println(add2(5)(6))//11</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-隐式转换与隐式参数"><a href="#二-隐式转换与隐式参数" class="headerlink" title="二 隐式转换与隐式参数"></a>二 隐式转换与隐式参数</h2><p>隐式转换和隐式参数是scala非常有特色的功能，也是Java等其他编程语言没有的功能。我们可以很方便地利用隐式转换来丰富现有类的功能。后面在编写Akka并发编程、Spark SQL、Flink都会看到隐式转换和隐式参数的身影。</p>
+<h3 id="1-使用隐式转换"><a href="#1-使用隐式转换" class="headerlink" title="1 使用隐式转换"></a>1 使用隐式转换</h3><p><strong>定义:</strong></p>
+<p>所谓<strong>隐式转换</strong>，是指以implicit关键字声明的带有<strong>单个参数</strong>的方法。它是<strong>自动被调用</strong>的，自动将某种类型转换为另外一种类型。</p>
+<p><strong>使用步骤</strong></p>
+<ol>
+<li>在object中定义隐式转换方法（使用implicit）</li>
+<li>在需要用到隐式转换的地方，引入隐式转换（使用import）</li>
+<li>自动调用隐式转化后的方法</li>
+</ol>
+<p><strong>例子</strong></p>
+<p><strong>示例说明</strong></p>
+<p>使用隐式转换，让File具备有read功能——实现将文本中的内容以字符串形式读取出来</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建RichFile类，提供一个read方法，用于将文件内容读取为字符串</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义一个隐式转换方法，将File隐式转换为RichFile对象</p>
+</li>
+<li><p>创建一个File，导入隐式转换，调用File的read方法</p>
+</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.yinshizhuanhuan</span><br><span class="line"></span><br><span class="line">import java.io.File</span><br><span class="line"></span><br><span class="line">import scala.io.Source</span><br><span class="line">//隐式转换</span><br><span class="line">/*1. 创建RichFile类，提供一个read方法，用于将文件内容读取为字符串</span><br><span class="line">2. 定义一个隐式转换方法，将File隐式转换为RichFile对象</span><br><span class="line">3. 创建一个File，导入隐式转换，调用File的read方法*/</span><br><span class="line"></span><br><span class="line">object Demo6 &#123;</span><br><span class="line">    class RichFile(f:File)&#123;</span><br><span class="line">      def read()=&#123;</span><br><span class="line">        Source.fromFile(f).mkString</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  object Im&#123;</span><br><span class="line">    implicit def fileToRichFile(file:File) =new RichFile(file)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">  	val file = new File(&quot;day23Scala4/data/a.txt&quot;)</span><br><span class="line">    import Im.fileToRichFile</span><br><span class="line">    println(file.read())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>隐式转换的时机</strong></p>
+<ul>
+<li>当对象调用类中不存在的方法或者成员时，编译器会自动将对象进行隐式转换</li>
+<li>当方法中的参数的类型与目标类型不一致时</li>
+</ul>
+<h3 id="2-自动导入隐式转化方法"><a href="#2-自动导入隐式转化方法" class="headerlink" title="2 自动导入隐式转化方法"></a>2 自动导入隐式转化方法</h3><p>前面，我们手动使用了import来导入隐式转换。是否可以不手动import呢？</p>
+<p>在scala中，如果在当前作用域中有隐式转换方法，会自动导入隐式转换。</p>
+<p>示例：将隐式转换方法定义在main所在的object中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.yinshizhuanhuan</span><br><span class="line"></span><br><span class="line">import java.io.File</span><br><span class="line"></span><br><span class="line">import scala.io.Source</span><br><span class="line"></span><br><span class="line">//自动导入隐式转换</span><br><span class="line">object Demo7 &#123;</span><br><span class="line">  class RichFile(f:File)&#123;</span><br><span class="line">    def read()=&#123;</span><br><span class="line">      Source.fromFile(f).mkString</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val file = new File(&quot;day23Scala4/data/a.txt&quot;)</span><br><span class="line">    implicit def fileToRichFile(file:File) =new RichFile(file)</span><br><span class="line">    println(file.read())</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-隐式参数"><a href="#3-隐式参数" class="headerlink" title="3 隐式参数"></a>3 隐式参数</h3><p>方法可以带有一个标记为implicit的参数列表。这种情况，编译器会查找缺省值，提供给该方法。</p>
+<p><strong>定义</strong></p>
+<ol>
+<li>在方法后面添加一个参数列表，参数使用implicit修饰</li>
+<li>在object中定义implicit修饰的隐式值</li>
+<li>调用方法，可以不传入implicit修饰的参数列表，编译器会自动查找缺省值</li>
+</ol>
+<p>注意:</p>
+<ol>
+<li>和隐式转换一样，可以使用import手动导入隐式参数</li>
+<li>如果在当前作用域定义了隐式值，会自动进行导入</li>
+</ol>
+<p><strong>例子</strong></p>
+<p><strong>示例说明</strong></p>
+<ul>
+<li>定义一个方法，可将传入的值，使用一个分隔符前缀、后缀包括起来</li>
+<li>使用隐式参数定义分隔符</li>
+<li>调用该方法，并打印测试</li>
+</ul>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.yinshizhuanhuan</span><br><span class="line">//隐式参数</span><br><span class="line">/*- 定义一个方法，可将传入的值，使用一个分隔符前缀、后缀包括起来</span><br><span class="line">- 使用隐式参数定义分隔符</span><br><span class="line">- 调用该方法，并打印测试*/</span><br><span class="line">//与java中的动态代理  作用有点类似</span><br><span class="line">object Demo8 &#123;</span><br><span class="line">    def qu(str:String)(implicit im:(String,String)) =&#123;</span><br><span class="line">      im._1+str+im._2</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  //定义隐式参数</span><br><span class="line">  object Im&#123;</span><br><span class="line">    implicit val delim= (&quot;&lt;&lt;&quot;,&quot;&gt;&gt;&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    import Im.delim</span><br><span class="line">    println(qu(&quot;aa&quot;))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三-Akka-并发编程"><a href="#三-Akka-并发编程" class="headerlink" title="三 Akka 并发编程"></a>三 Akka 并发编程</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h3><p>Akka是一个用于构建高并发、分布式和可扩展的基于事件驱动的应用的工具包。Akka是使用scala开发的库，同时可以使用scala和Java语言来开发基于Akka的应用程序。</p>
+<h3 id="2-特性"><a href="#2-特性" class="headerlink" title="2 特性"></a>2 特性</h3><ul>
+<li>提供基于异步非阻塞、高性能的事件驱动编程模型</li>
+<li>内置容错机制，允许Actor在出错时进行恢复或者重置操作</li>
+<li>超级轻量级的事件处理（每GB堆内存几百万Actor）</li>
+<li>使用Akka可以在单机上构建高并发程序，也可以在网络中构建分布式程序。</li>
+</ul>
+<h3 id="3-Akka通信过程"><a href="#3-Akka通信过程" class="headerlink" title="3 Akka通信过程"></a>3 Akka通信过程</h3><p>以下图片说明了Akka Actor的并发编程模型的基本流程：</p>
+<ol>
+<li><p>学生创建一个ActorSystem</p>
+</li>
+<li><p>通过ActorSystem来创建一个ActorRef（老师的引用），并将消息发送给ActorRef</p>
+</li>
+<li><p>ActorRef将消息发送给Message Dispatcher（消息分发器）</p>
+</li>
+<li><p>Message Dispatcher将消息按照顺序保存到目标Actor的MailBox中</p>
+</li>
+<li><p>Message Dispatcher将MailBox放到一个线程中</p>
+</li>
+<li><p>MailBox按照顺序取出消息，最终将它递给TeacherActor接受的方法中</p>
+<p><a href="https://manzhong.github.io/images/scala/akka.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/scala/akka.png" alt="img"></a></p>
+</li>
+</ol>
+<h3 id="4-入门案例"><a href="#4-入门案例" class="headerlink" title="4 入门案例"></a>4 入门案例</h3><p>基于Akka创建两个Actor，Actor之间可以互相发送消息。</p>
+<p><a href="https://manzhong.github.io/images/scala/akkabf.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/scala/akkabf.png" alt="img"></a></p>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><ol>
+<li>创建Maven模块</li>
+<li>创建并加载Actor</li>
+<li>发送/接收消息</li>
+</ol>
+<p><strong>1创建Maven模块</strong></p>
+<p>使用Akka需要导入Akka库，我们这里使用Maven来管理项目</p>
+<ol>
+<li>创建Maven模块</li>
+<li>打开pom.xml文件，导入akka Maven依赖和插件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">       &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">       &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">       &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">       &lt;scala.version&gt;2.11.8&lt;/scala.version&gt;</span><br><span class="line">       &lt;scala.compat.version&gt;2.11&lt;/scala.compat.version&gt;</span><br><span class="line">   &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">   &lt;dependencies&gt;</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;scala-library&lt;/artifactId&gt;</span><br><span class="line">           &lt;version&gt;$&#123;scala.version&#125;&lt;/version&gt;</span><br><span class="line">       &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;akka-actor_2.11&lt;/artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.3.14&lt;/version&gt;</span><br><span class="line">       &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;com.typesafe.akka&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;akka-remote_2.11&lt;/artifactId&gt;</span><br><span class="line">           &lt;version&gt;2.3.14&lt;/version&gt;</span><br><span class="line">       &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">   &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">   &lt;build&gt;</span><br><span class="line">       &lt;sourceDirectory&gt;src/main/scala&lt;/sourceDirectory&gt;</span><br><span class="line">       &lt;testSourceDirectory&gt;src/test/scala&lt;/testSourceDirectory&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;version&gt;3.2.2&lt;/version&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;compile&lt;/goal&gt;</span><br><span class="line">                           &lt;goal&gt;testCompile&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                       &lt;configuration&gt;</span><br><span class="line">                           &lt;args&gt;</span><br><span class="line">                               &lt;arg&gt;-dependencyfile&lt;/arg&gt;</span><br><span class="line">                               &lt;arg&gt;$&#123;project.build.directory&#125;/.scala_dependencies&lt;/arg&gt;</span><br><span class="line">                           &lt;/args&gt;</span><br><span class="line">                       &lt;/configuration&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;version&gt;2.4.3&lt;/version&gt;</span><br><span class="line">               &lt;executions&gt;</span><br><span class="line">                   &lt;execution&gt;</span><br><span class="line">                       &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">                       &lt;goals&gt;</span><br><span class="line">                           &lt;goal&gt;shade&lt;/goal&gt;</span><br><span class="line">                       &lt;/goals&gt;</span><br><span class="line">                       &lt;configuration&gt;</span><br><span class="line">                           &lt;filters&gt;</span><br><span class="line">                               &lt;filter&gt;</span><br><span class="line">                                   &lt;artifact&gt;*:*&lt;/artifact&gt;</span><br><span class="line">                                   &lt;excludes&gt;</span><br><span class="line">                                       &lt;exclude&gt;META-INF/*.SF&lt;/exclude&gt;</span><br><span class="line">                                       &lt;exclude&gt;META-INF/*.DSA&lt;/exclude&gt;</span><br><span class="line">                                       &lt;exclude&gt;META-INF/*.RSA&lt;/exclude&gt;</span><br><span class="line">                                   &lt;/excludes&gt;</span><br><span class="line">                               &lt;/filter&gt;</span><br><span class="line">                           &lt;/filters&gt;</span><br><span class="line">                           &lt;transformers&gt;</span><br><span class="line">                               &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                                   &lt;resource&gt;reference.conf&lt;/resource&gt;</span><br><span class="line">                               &lt;/transformer&gt;</span><br><span class="line">                               &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;</span><br><span class="line">                                   &lt;mainClass&gt;&lt;/mainClass&gt;</span><br><span class="line">                               &lt;/transformer&gt;</span><br><span class="line">                           &lt;/transformers&gt;</span><br><span class="line">                       &lt;/configuration&gt;</span><br><span class="line">                   &lt;/execution&gt;</span><br><span class="line">               &lt;/executions&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line">       &lt;/plugins&gt;</span><br><span class="line">   &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2创建并加载Actor</strong></p>
+<p>创建两个Actor</p>
+<ul>
+<li><p>SenderActor：用来发送消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.akkademo</span><br><span class="line"></span><br><span class="line">import akka.actor.Actor</span><br><span class="line">//发送消息</span><br><span class="line">object SenderActor extends Actor&#123;</span><br><span class="line">  //不在使用loop+react了 在akka中直接在receive中编写偏函数直接处理消息就可以持续接受消息</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case x =&gt; println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ReceiveActor：用来接收，回复消息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.akkademo</span><br><span class="line"></span><br><span class="line">import akka.actor.Actor</span><br><span class="line">//接收  回复消息</span><br><span class="line">object ReceiveActor extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case x =&gt; println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>创建Actor</strong></p>
+<ol>
+<li><p>创建ActorSystem</p>
+</li>
+<li><p>创建自定义Actor</p>
+</li>
+<li><p>ActorSystem加载Actor</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com.nicai.akkademo</span><br><span class="line"></span><br><span class="line">import akka.actor.&#123;ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object Entrance &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    //创建ActorSystem</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;, ConfigFactory.load())</span><br><span class="line">    //加载Actor</span><br><span class="line">    val senderActor = actorSystem.actorOf(Props(SenderActor),&quot;senderActor&quot;)</span><br><span class="line">    val receiveActor = actorSystem.actorOf(Props(ReceiveActor),&quot;receiveActor&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><strong>3发送/接收消息</strong></p>
+<ul>
+<li>使用样例类封装消息</li>
+<li>SubmitTaskMessage——提交任务消息</li>
+<li>SuccessSubmitTaskMessage——任务提交成功消息</li>
+<li>使用类似于之前学习的Actor方式，使用<code>!</code>发送异步消息</li>
+</ul>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">完整版</span><br><span class="line">//sender发送消息</span><br><span class="line">case class MessageSub(msg:String)</span><br><span class="line">//receive回复消息</span><br><span class="line">case class MsgSuccess(msg:String)</span><br><span class="line">............................................................................</span><br><span class="line">import akka.actor.Actor</span><br><span class="line">//发送消息</span><br><span class="line">object SenderActor extends Actor&#123;</span><br><span class="line">  //不在使用loop+react了 在akka中直接在receive中编写偏函数直接处理消息就可以持续接受消息</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    //匹配 entrance 的消息</span><br><span class="line">    case MessageSub(&quot;start&quot;) =&gt; &#123;</span><br><span class="line">      println(&quot;收到消息&quot;)</span><br><span class="line">        //格式akka://actorSystem的名字/user(固定)/receiveActor的名字  若是远程连接则加端口号等</span><br><span class="line">      val receiveActor = context.actorSelection(&quot;akka://actorSystem/user/receiveActor&quot;)</span><br><span class="line">      //向receive发送消息</span><br><span class="line">      receiveActor ! MessageSub(&quot;nicai&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">      //接收receive的消息</span><br><span class="line">    case MsgSuccess(name) =&gt;&#123;</span><br><span class="line">      println(name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">...............................................................................</span><br><span class="line">import akka.actor.Actor</span><br><span class="line">//接收  回复消息</span><br><span class="line">object ReceiveActor extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">      //匹配消息</span><br><span class="line">    case MessageSub(name) =&gt; &#123;</span><br><span class="line">      println(name)</span><br><span class="line">        //回复消息</span><br><span class="line">      sender  ! MsgSuccess(&quot;我不猜&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    case _ =&gt; println(&quot;未匹配的消息类型&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">............................................................................</span><br><span class="line">import akka.actor.&#123;ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line">object Entrance &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    //创建ActorSystem</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;, ConfigFactory.load())</span><br><span class="line">    //加载Actor</span><br><span class="line">    val senderActor = actorSystem.actorOf(Props(SenderActor),&quot;senderActor&quot;)</span><br><span class="line">    val receiveActor = actorSystem.actorOf(Props(ReceiveActor),&quot;receiveActor&quot;)</span><br><span class="line"></span><br><span class="line">    //向senderActor发送消息</span><br><span class="line">    senderActor ! MessageSub(&quot;start&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">收到消息</span><br><span class="line">nicai</span><br><span class="line">我不猜</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Akka定时任务"><a href="#5-Akka定时任务" class="headerlink" title="5 Akka定时任务"></a>5 Akka定时任务</h3><p>如果我们想要使用Akka框架定时的执行一些任务，该如何处理呢？</p>
+<p>使用方式:</p>
+<p>Akka中，提供一个<strong>scheduler</strong>对象来实现定时调度功能。使用ActorSystem.scheduler.schedule方法，可以启动一个定时任务。</p>
+<p>schedule方法针对scala提供两种使用形式：</p>
+<p><strong>第一种：发送消息</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def schedule(</span><br><span class="line">    initialDelay: FiniteDuration,        // 延迟多久后启动定时任务</span><br><span class="line">    interval: FiniteDuration,            // 每隔多久执行一次</span><br><span class="line">    receiver: ActorRef,                    // 给哪个Actor发送消息</span><br><span class="line">    message: Any)                        // 要发送的消息</span><br><span class="line">(implicit executor: ExecutionContext)    // 隐式参数：需要手动导入</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二种：自定义实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def schedule(</span><br><span class="line">    initialDelay: FiniteDuration,            // 延迟多久后启动定时任务</span><br><span class="line">    interval: FiniteDuration                // 每隔多久执行一次</span><br><span class="line">)(f: ⇒ Unit)                                // 定期要执行的函数，可以将逻辑写在这里</span><br><span class="line">(implicit executor: ExecutionContext)        // 隐式参数：需要手动导入</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h2><p><strong>示例说明</strong></p>
+<ul>
+<li>定义一个Actor，每1秒发送一个消息给Actor，Actor收到后打印消息</li>
+<li>使用发送消息方式实现</li>
+</ul>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.&#123;Actor, ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object Demo1 &#123;</span><br><span class="line">//创建actor</span><br><span class="line">  object ReceiveActor extends Actor &#123;</span><br><span class="line">    override def receive: Receive = &#123;</span><br><span class="line">      case x =&gt; println(x)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;,ConfigFactory.load())</span><br><span class="line">    val receiveActor = actorSystem.actorOf(Props(ReceiveActor))</span><br><span class="line"></span><br><span class="line">    //导入 隐式转换</span><br><span class="line">    import  scala.concurrent.duration._</span><br><span class="line">    //导入隐式参数</span><br><span class="line">    import actorSystem.dispatcher</span><br><span class="line"></span><br><span class="line">    actorSystem.scheduler.schedule(0 seconds, //延迟后多久启动定时任务</span><br><span class="line">      1 seconds,   //每隔多久执行一次</span><br><span class="line">      receiveActor,        //给那个actor发送消息</span><br><span class="line">      &quot;hello&quot;    //消息正文</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h2><p><strong>示例说明</strong></p>
+<ul>
+<li>定义一个Actor，每1秒发送一个消息给Actor，Actor收到后打印消息</li>
+<li>使用自定义方式实现</li>
+</ul>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.&#123;Actor, ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object Demo2 &#123;</span><br><span class="line">    object ReceiceActor extends Actor&#123;</span><br><span class="line">      override def receive: Receive = &#123;</span><br><span class="line">        case x =&gt; println(x)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;,ConfigFactory.load())</span><br><span class="line">    val receiveActor = actorSystem.actorOf(Props(ReceiceActor))</span><br><span class="line"></span><br><span class="line">    //导入隐式装换 不到无法使用 0 seconds</span><br><span class="line">    import scala.concurrent.duration._</span><br><span class="line">    //导入隐式参数</span><br><span class="line">    import actorSystem.dispatcher</span><br><span class="line"></span><br><span class="line">    actorSystem.scheduler.schedule(0 seconds,1 seconds)(</span><br><span class="line">      receiveActor ! &quot; iac&quot;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意:</p>
+<ol>
+<li>需要导入隐式转换<code>import scala.concurrent.duration._</code>才能调用0 seconds方法</li>
+<li>需要导入隐式参数<code>import actorSystem.dispatcher</code>才能启动定时任务</li>
+</ol>
+<h3 id="6-实现两个进程间的通信-master实现"><a href="#6-实现两个进程间的通信-master实现" class="headerlink" title="6 实现两个进程间的通信 master实现"></a>6 实现两个进程间的通信 master实现</h3><p>基于Akka实现在两个<strong>进程</strong>间发送、接收消息。Worker启动后去连接Master，并发送消息，Master接收到消息后，再回复Worker消息。</p>
+<p><a href="https://manzhong.github.io/images/scala/jctx.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/scala/jctx.png" alt="img"></a></p>
+<h2 id="1-Worker实现"><a href="#1-Worker实现" class="headerlink" title="1. Worker实现"></a>1. Worker实现</h2><p><strong>步骤</strong></p>
+<ol>
+<li><p>创建一个Maven模块，导入依赖和配置文件</p>
+</li>
+<li><p>创建配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">application.conf</span><br><span class="line"></span><br><span class="line">akka.actor.provider = &quot;akka.remote.RemoteActorRefProvider&quot;</span><br><span class="line">akka.remote.netty.tcp.hostname = &quot;127.0.0.1&quot;</span><br><span class="line">akka.remote.netty.tcp.port = &quot;8888&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建启动WorkerActor</p>
+</li>
+<li><p>发送”setup”消息给WorkerActor，WorkerActor接收打印消息</p>
+</li>
+<li><p>启动测试</p>
+</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<p>Worker.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.&#123;Actor, ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object Worker &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;,ConfigFactory.load())</span><br><span class="line">    val worker = actorSystem.actorOf(Props(WorkerActor))</span><br><span class="line">    //发送消息</span><br><span class="line">    worker ! &quot;nicai&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>WorkerActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.Actor</span><br><span class="line"></span><br><span class="line">object WorkerActor extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case x =&gt; println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Master实现"><a href="#2-Master实现" class="headerlink" title="2. Master实现"></a>2. Master实现</h2><p><strong>步骤</strong></p>
+<ol>
+<li>创建Maven模块，导入依赖和配置文件</li>
+<li>创建启动MasterActor</li>
+<li>WorkerActor发送”connect”消息给MasterActor</li>
+<li>MasterActor回复”success”消息给WorkerActor</li>
+<li>WorkerActor接收并打印接收到的消息</li>
+<li>启动Master、Worker测试</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<p>Master.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.&#123;ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object Master &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;,ConfigFactory.load())</span><br><span class="line">    val masterActor = actorSystem.actorOf(Props(MasterActor),&quot;masterActor&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MasterActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.Actor</span><br><span class="line"></span><br><span class="line">object MasterActor  extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case &quot;connect&quot; =&gt; &#123;</span><br><span class="line">      println(&quot;worker连接成功&quot;)</span><br><span class="line">      sender ! &quot;success&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>WorkerActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.Actor</span><br><span class="line"></span><br><span class="line">object WorkerActor extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case &quot;start&quot; =&gt; &#123;</span><br><span class="line">      println(&quot;start&quot;)</span><br><span class="line">        //设置连接</span><br><span class="line">      val masterActor = context.actorSelection(&quot;akka.tcp://actorSystem@127.0.0.1:9999/user/masterActor&quot;)</span><br><span class="line">      masterActor ! &quot;connect&quot;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    case &quot;success&quot; =&gt; &#123;</span><br><span class="line">      println(&quot;连接master成功&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四-简易Spark通信框架案例"><a href="#四-简易Spark通信框架案例" class="headerlink" title="四 简易Spark通信框架案例"></a>四 简易Spark通信框架案例</h2><p><strong>案例介绍</strong></p>
+<p>模拟Spark的Master与Worker通信</p>
+<ul>
+<li>一个Master<ul>
+<li>管理Worker</li>
+</ul>
+</li>
+<li>若干个Worker（Worker可以按需添加）<ul>
+<li>注册</li>
+<li>发送心跳</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://manzhong.github.io/images/scala/spark.png" target="_blank" rel="noopener"><img src="https://manzhong.github.io/images/scala/spark.png" alt="img"></a></p>
+<p><strong>实现思路</strong></p>
+<ol>
+<li>构建Master、Worker阶段<ul>
+<li>构建Master ActorSystem、Actor</li>
+<li>构建Worker ActorSystem、Actor</li>
+</ul>
+</li>
+<li>Worker注册阶段<ul>
+<li>Worker进程向Master注册（将自己的ID、CPU核数、内存大小(M)发送给Master）</li>
+</ul>
+</li>
+<li>Worker定时发送心跳阶段<ul>
+<li>Worker定期向Master发送心跳消息</li>
+</ul>
+</li>
+<li>Master定时心跳检测阶段<ul>
+<li>Master定期检查Worker心跳，将一些超时的Worker移除，并对Worker按照内存进行倒序排序</li>
+</ul>
+</li>
+<li>多个Worker测试阶段<ul>
+<li>启动多个Worker，查看是否能够注册成功，并停止某个Worker查看是否能够正确移除</li>
+</ul>
+</li>
+</ol>
+<p><strong>工程搭建</strong></p>
+<p>项目使用Maven搭建工程</p>
+<ol>
+<li>分别搭建几下几个项目</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">工程名</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">spark-demo-common</td>
+<td align="left">存放公共的消息、实体类</td>
+</tr>
+<tr>
+<td align="left">spark-demo-master</td>
+<td align="left">Akka Master节点</td>
+</tr>
+<tr>
+<td align="left">spark-demo-worker</td>
+<td align="left">Akka Worker节点</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>导入依赖</p>
+<ul>
+<li><p>master/worker添加common依赖,其余同上</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">common依赖</span><br><span class="line"></span><br><span class="line"> &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;encoding&gt;UTF-8&lt;/encoding&gt;</span><br><span class="line">        &lt;scala.version&gt;2.11.8&lt;/scala.version&gt;</span><br><span class="line">        &lt;scala.compat.version&gt;2.11&lt;/scala.compat.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.scala-lang&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;scala-library&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;scala.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">&lt;build&gt;</span><br><span class="line">        &lt;sourceDirectory&gt;src/main/scala&lt;/sourceDirectory&gt;</span><br><span class="line">        &lt;testSourceDirectory&gt;src/test/scala&lt;/testSourceDirectory&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;net.alchim31.maven&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;scala-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.2.2&lt;/version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;compile&lt;/goal&gt;</span><br><span class="line">                            &lt;goal&gt;testCompile&lt;/goal&gt;</span><br><span class="line">                        &lt;/goals&gt;</span><br><span class="line">                        &lt;configuration&gt;</span><br><span class="line">                            &lt;args&gt;</span><br><span class="line">                                &lt;arg&gt;-dependencyfile&lt;/arg&gt;</span><br><span class="line">                                &lt;arg&gt;$&#123;project.build.directory&#125;/.scala_dependencies&lt;/arg&gt;</span><br><span class="line">                            &lt;/args&gt;</span><br><span class="line">                        &lt;/configuration&gt;</span><br><span class="line">                    &lt;/execution&gt;</span><br><span class="line">                &lt;/executions&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.4.3&lt;/version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;shade&lt;/goal&gt;</span><br><span class="line">                        &lt;/goals&gt;</span><br><span class="line">                        &lt;configuration&gt;</span><br><span class="line">                            &lt;filters&gt;</span><br><span class="line">                                &lt;filter&gt;</span><br><span class="line">                                    &lt;artifact&gt;*:*&lt;/artifact&gt;</span><br><span class="line">                                    &lt;excludes&gt;</span><br><span class="line">                                        &lt;exclude&gt;META-INF/*.SF&lt;/exclude&gt;</span><br><span class="line">                                        &lt;exclude&gt;META-INF/*.DSA&lt;/exclude&gt;</span><br><span class="line">                                        &lt;exclude&gt;META-INF/*.RSA&lt;/exclude&gt;</span><br><span class="line">                                    &lt;/excludes&gt;</span><br><span class="line">                                &lt;/filter&gt;</span><br><span class="line">                            &lt;/filters&gt;</span><br><span class="line">                            &lt;transformers&gt;</span><br><span class="line">                                &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                                    &lt;resource&gt;reference.conf&lt;/resource&gt;</span><br><span class="line">                                &lt;/transformer&gt;</span><br><span class="line">                                &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;</span><br><span class="line">                                    &lt;mainClass&gt;&lt;/mainClass&gt;</span><br><span class="line">                                &lt;/transformer&gt;</span><br><span class="line">                            &lt;/transformers&gt;</span><br><span class="line">                        &lt;/configuration&gt;</span><br><span class="line">                    &lt;/execution&gt;</span><br><span class="line">                &lt;/executions&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>导入配置文件(同上)</p>
+<ul>
+<li>修改Master的端口为7000(或者自定义)</li>
+<li>修改Worker的端口为7100(或者自定义 最好 8000以上)</li>
+</ul>
+</li>
+</ol>
+<p><strong>构建master和worker</strong></p>
+<p>master和masterActor worker和workerActor</p>
+<p>同上:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//MasterActor</span><br><span class="line">import akka.actor.Actor</span><br><span class="line">object MasterActor extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case x =&gt; println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">........................................</span><br><span class="line">//MasterMain</span><br><span class="line">import akka.actor.&#123;ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object MasterMain &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;,ConfigFactory.load())</span><br><span class="line">    val masterActor = actorSystem.actorOf(Props(MasterActor),&quot;masterActor&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.............................................................</span><br><span class="line">//WorkerActor </span><br><span class="line">import akka.actor.Actor</span><br><span class="line"></span><br><span class="line">object WorkerActor extends Actor&#123;</span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case x =&gt; println(x)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">..............................</span><br><span class="line">//WorkerMain </span><br><span class="line">import akka.actor.&#123;ActorSystem, Props&#125;</span><br><span class="line">import com.typesafe.config.ConfigFactory</span><br><span class="line"></span><br><span class="line">object WorkerMain &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">    val actorSystem = ActorSystem(&quot;actorSystem&quot;,ConfigFactory.load())</span><br><span class="line">    val workerActor = actorSystem.actorOf(Props(WorkerActor),&quot;workerActor&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>worker注册实现</strong></p>
+<p>在Worker启动时，发送注册消息给Master</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>Worker向Master发送注册消息（workerid、cpu核数、内存大小）<ul>
+<li>随机生成CPU核（1、2、3、4、6、8）</li>
+<li>随机生成内存大小（512、1024、2048、4096）（单位M）</li>
+</ul>
+</li>
+<li>Master保存Worker信息，并给Worker回复注册成功消息</li>
+<li>启动测试</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<p>MasterActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import akka.actor.Actor</span><br><span class="line">import com.nicai.common.&#123;MsgRegin, MsgSuccess, Pojo&#125;</span><br><span class="line"></span><br><span class="line">import scala.collection.mutable</span><br><span class="line"></span><br><span class="line">object MasterActor extends Actor&#123;</span><br><span class="line">  //保存消息</span><br><span class="line">  private var stringToPojo: mutable.Map[String, Pojo] = collection.mutable.Map[String,Pojo]()</span><br><span class="line"></span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case MsgRegin(workid,cpu,mem) =&gt; &#123;</span><br><span class="line">      println(&quot;收到注册消息&quot;+workid+&quot;-&quot;+cpu+&quot;-&quot;+mem)</span><br><span class="line">      //保存消息到实体类</span><br><span class="line">      stringToPojo += workid -&gt; Pojo(workid,cpu,mem)</span><br><span class="line">      //回复消息</span><br><span class="line">      sender ! MsgSuccess(&quot;success&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Pojo.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//实体类保存 worker的注册信息</span><br><span class="line">case class Pojo(wokid:String,cpu:Int,mem:Int)</span><br></pre></td></tr></table></figure>
+
+<p>MsgPackage.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//注册消息</span><br><span class="line">case class MsgRegin(workid:String,cpu:Int,mem:Int)</span><br><span class="line">//注册成功回复消息</span><br><span class="line">case class MsgSuccess(success:String)</span><br></pre></td></tr></table></figure>
+
+<p>WorkerActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.UUID</span><br><span class="line"></span><br><span class="line">import akka.actor.&#123;Actor, ActorSelection, ActorSystem&#125;</span><br><span class="line">import com.nicai.common.&#123;MsgRegin, MsgSuccess&#125;</span><br><span class="line"></span><br><span class="line">import scala.util.Random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">object WorkerActor extends Actor&#123;</span><br><span class="line">  private var actorSelection:ActorSelection=_</span><br><span class="line">  private var CPU_lIST:Int=_</span><br><span class="line">  private var MEM_LIST:Int=_</span><br><span class="line">  private var cpuList=List(1,2,4,8)</span><br><span class="line">  private var memList=List(128,256,512,1024,2048)</span><br><span class="line">  //在actor启动前要做的事</span><br><span class="line"> override def preStart()=&#123;</span><br><span class="line">    //1 获取发送的对象</span><br><span class="line">   actorSelection = context.system.actorSelection(&quot;akka.tcp://actorSystem@127.0.0.1:7000/user/masterActor&quot;)</span><br><span class="line">    //2  封装消息</span><br><span class="line">    val workerid:String=UUID.randomUUID().toString</span><br><span class="line">    var a=new Random()</span><br><span class="line">    CPU_lIST=cpuList(a.nextInt(cpuList.length))</span><br><span class="line">    MEM_LIST=memList(a.nextInt(memList.length))</span><br><span class="line">    val regin = MsgRegin(workerid,CPU_lIST,MEM_LIST)</span><br><span class="line">    //3 发送消息</span><br><span class="line">    actorSelection ! regin</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case MsgSuccess(name) =&gt; &#123;</span><br><span class="line">      println(&quot;注册后的回复&quot;+name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>worker定时发送心跳</strong></p>
+<p>Worker接收到Master返回注册成功后，发送心跳消息。而Master收到Worker发送的心跳消息后，需要更新对应Worker的最后心跳时间。</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>编写工具类读取心跳发送时间间隔</li>
+<li>创建心跳消息</li>
+<li>Worker接收到注册成功后，定时发送心跳消息</li>
+<li>Master收到心跳消息，更新Worker最后心跳时间</li>
+<li>启动测试</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<p>修改配置文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">添加 workerActor中的</span><br><span class="line">//定时发送消息</span><br><span class="line">worker.heartbeat.interval=5</span><br></pre></td></tr></table></figure>
+
+<p>在workerActor中ConfUtil.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import com.typesafe.config.&#123;Config, ConfigFactory&#125;</span><br><span class="line"></span><br><span class="line">object ConfUtil&#123;</span><br><span class="line">  private val config: Config = ConfigFactory.load()</span><br><span class="line"></span><br><span class="line">  val `worker.heartbeat.interval` = config.getInt(&quot;worker.heartbeat.interval&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MsgPackage.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//心跳信息</span><br><span class="line">case class MsgHeartBeat(workid:String,cpu:Int,mem:Int)</span><br></pre></td></tr></table></figure>
+
+<p>WorkerActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">import java.util.UUID</span><br><span class="line">import akka.actor.&#123;Actor, ActorSelection, ActorSystem&#125;</span><br><span class="line">import com.nicai.common.&#123;MsgHeartBeat, MsgRegin, MsgSuccess&#125;</span><br><span class="line">import scala.util.Random</span><br><span class="line">object WorkerActor extends Actor &#123;</span><br><span class="line">  private var actorSelection: ActorSelection = _</span><br><span class="line">  private var workerid: String = _</span><br><span class="line">  private var CPU_lIST: Int = _</span><br><span class="line">  private var MEM_LIST: Int = _</span><br><span class="line">  private var cpuList = List(1, 2, 4, 8)</span><br><span class="line">  private var memList = List(128, 256, 512, 1024, 2048)</span><br><span class="line"></span><br><span class="line">  //在actor启动前要做的事</span><br><span class="line">  override def preStart() = &#123;</span><br><span class="line">    //1 获取发送的对象</span><br><span class="line">    actorSelection = context.system.actorSelection(&quot;akka.tcp://actorSystem@127.0.0.1:7000/user/masterActor&quot;)</span><br><span class="line">    //2  封装消息</span><br><span class="line">    workerid = UUID.randomUUID().toString</span><br><span class="line">    var a = new Random()</span><br><span class="line">    CPU_lIST = cpuList(a.nextInt(cpuList.length))</span><br><span class="line">    MEM_LIST = memList(a.nextInt(memList.length))</span><br><span class="line">    val regin = MsgRegin(workerid, CPU_lIST, MEM_LIST)</span><br><span class="line">    //3 发送消息</span><br><span class="line">    actorSelection ! regin</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case MsgSuccess(name) =&gt; &#123;</span><br><span class="line">      println(&quot;注册后的回复&quot; + name)</span><br><span class="line">      //导入隐式转换</span><br><span class="line">      import scala.concurrent.duration._</span><br><span class="line">      //导入隐式参数</span><br><span class="line">      import context.dispatcher</span><br><span class="line">      //心跳发送</span><br><span class="line">      context.system.scheduler.schedule(0 seconds,</span><br><span class="line">        ConfUtil.`worker.heartbeat.interval` seconds</span><br><span class="line">      ) &#123;</span><br><span class="line">        actorSelection ! MsgHeartBeat(workerid,CPU_lIST,MEM_LIST)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MasterActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Date</span><br><span class="line"></span><br><span class="line">import akka.actor.Actor</span><br><span class="line">import com.nicai.common.&#123;MsgHeartBeat, MsgRegin, MsgSuccess, Pojo&#125;</span><br><span class="line"></span><br><span class="line">import scala.collection.mutable</span><br><span class="line"></span><br><span class="line">object MasterActor extends Actor&#123;</span><br><span class="line">  //保存消息</span><br><span class="line">  private var stringToPojo: mutable.Map[String, Pojo] = collection.mutable.Map[String,Pojo]()</span><br><span class="line"></span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case MsgRegin(workid,cpu,mem) =&gt; &#123;</span><br><span class="line">      println(&quot;收到注册消息&quot;+workid+&quot;-&quot;+cpu+&quot;-&quot;+mem)</span><br><span class="line">      //保存消息到实体类</span><br><span class="line">      stringToPojo += workid -&gt; Pojo(workid,cpu,mem,new Date().getTime)</span><br><span class="line">      //回复消息</span><br><span class="line">      sender ! MsgSuccess(&quot;success&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">      //心跳</span><br><span class="line">    case MsgHeartBeat(workid,cpu,mem)=&gt;&#123;</span><br><span class="line">      println(&quot;接收到心跳&quot;)</span><br><span class="line">      //更新消息</span><br><span class="line">      stringToPojo += workid -&gt; Pojo(workid,cpu,mem,new Date().getTime)</span><br><span class="line">      println(stringToPojo)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>master定时心跳检测</strong></p>
+<p>如果某个worker超过一段时间没有发送心跳，Master需要将该worker从当前的Worker集合中移除。可以通过Akka的定时任务，来实现心跳超时检查。</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>编写工具类，读取检查心跳间隔时间间隔、超时时间</li>
+<li>定时检查心跳，过滤出来大于超时时间的Worker</li>
+<li>移除超时的Worker</li>
+<li>对现有Worker按照内存进行降序排序，打印可用Worker</li>
+</ol>
+<p><strong>参考代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修改 master的配置文件</span><br><span class="line"></span><br><span class="line">//检查worker心跳的时间周期</span><br><span class="line">master.heartbeat.check.interval=6</span><br><span class="line">//配置worker的心跳超时时间</span><br><span class="line">master.heartbeat.check.timeout=15</span><br></pre></td></tr></table></figure>
+
+<p>ConfigUtil.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import com.typesafe.config.&#123;Config, ConfigFactory&#125;</span><br><span class="line">object ConfigUtil &#123;</span><br><span class="line">  private val config: Config = ConfigFactory.load()</span><br><span class="line"></span><br><span class="line">  // 心跳检查时间间隔</span><br><span class="line">  val `master.heartbeat.check.interval` = config.getInt(&quot;master.heartbeat.check.interval&quot;)</span><br><span class="line">  // 心跳超时时间</span><br><span class="line">  val `master.heartbeat.check.timeout` = config.getInt(&quot;master.heartbeat.check.timeout&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MasterActor.scala</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Date</span><br><span class="line">import akka.actor.Actor</span><br><span class="line">import com.nicai.common.&#123;MsgHeartBeat, MsgRegin, MsgSuccess, Pojo&#125;</span><br><span class="line"></span><br><span class="line">import scala.collection.mutable</span><br><span class="line"></span><br><span class="line">object MasterActor extends Actor&#123;</span><br><span class="line">  //保存消息</span><br><span class="line">  private var stringToPojo: mutable.Map[String, Pojo] = collection.mutable.Map[String,Pojo]()</span><br><span class="line">  override def preStart(): Unit = &#123;</span><br><span class="line">    // 导入时间单位隐式转换</span><br><span class="line">    import scala.concurrent.duration._</span><br><span class="line">    // 导入隐式参数</span><br><span class="line">    import context.dispatcher</span><br><span class="line"></span><br><span class="line">    // 1. 启动定时任务</span><br><span class="line">    context.system.scheduler.schedule(0 seconds,</span><br><span class="line">      ConfigUtil.`master.heartbeat.check.interval` seconds)&#123;</span><br><span class="line">      // 2. 过滤大于超时时间的Worker</span><br><span class="line">      val timeoutWorkerMap = stringToPojo.filter &#123;</span><br><span class="line">        keyval =&gt;</span><br><span class="line">          // 获取最后一次心跳更新时间</span><br><span class="line">          val lastHeartBeatTime = keyval._2.heartBeat</span><br><span class="line">          // 当前系统时间 - 最后一次心跳更新时间 &gt; 超时时间（配置文件） * 1000，返回true，否则返回false</span><br><span class="line">          if (new Date().getTime - lastHeartBeatTime &gt; ConfigUtil.`master.heartbeat.check.timeout` * 1000) &#123;</span><br><span class="line">            true</span><br><span class="line">          &#125;</span><br><span class="line">          else &#123;</span><br><span class="line">            false</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      // 3. 移除超时Worker</span><br><span class="line">      if(!timeoutWorkerMap.isEmpty) &#123;</span><br><span class="line">        stringToPojo --= timeoutWorkerMap.map(_._1)</span><br><span class="line"></span><br><span class="line">        // 4. 对Worker按照内存进行降序排序，打印Worker</span><br><span class="line">        val workerList = stringToPojo.map(_._2).toList</span><br><span class="line">        val sortedWorkerList = workerList.sortBy(_.mem).reverse</span><br><span class="line">        println(&quot;按照内存降序排序后的Worker列表：&quot;)</span><br><span class="line">        println(sortedWorkerList)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  override def receive: Receive = &#123;</span><br><span class="line">    case MsgRegin(workid,cpu,mem) =&gt; &#123;</span><br><span class="line">      println(&quot;收到注册消息&quot;+workid+&quot;-&quot;+cpu+&quot;-&quot;+mem)</span><br><span class="line">      //保存消息到实体类</span><br><span class="line">      stringToPojo += workid -&gt; Pojo(workid,cpu,mem,new Date().getTime)</span><br><span class="line">      //回复消息</span><br><span class="line">      sender ! MsgSuccess(&quot;success&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">      //心跳</span><br><span class="line">    case MsgHeartBeat(workid,cpu,mem)=&gt;&#123;</span><br><span class="line">      println(&quot;接收到心跳&quot;)</span><br><span class="line">      //更新消息</span><br><span class="line">      stringToPojo += workid -&gt; Pojo(workid,cpu,mem,new Date().getTime)</span><br><span class="line">      println(stringToPojo)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>多个worker测试</strong></p>
+<p>修改配置文件，启动多个worker进行测试。</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>测试启动新的Worker是否能够注册成功 (修改worker的端口号即可)</li>
+<li>停止Worker，测试是否能够从现有列表删除</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/08/Scala高级/" data-id="cjz25rjbs000nd8u52adc2r6t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/08/Scala进阶2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Scala进阶2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/08/ElSearh/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ElSearh</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/08/Hbase/">Hbase</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Hbase增强/">Hbase增强</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Storm/">Storm</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Scala入门/">Scala入门</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/08/Scala进阶1/">Scala进阶1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
